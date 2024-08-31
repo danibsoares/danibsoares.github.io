@@ -1,0 +1,58 @@
+/* GENERAL STYLES */
+
+* {
+  --background: #F5F5F5;
+  --dark: #222222;
+  --enphasis: #EE7F6B;
+  --gray-1: #B0B0B0;
+  --gray-2: #DBDBDB;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Hind Madurai", sans-serif;
+  font-weight: 500;
+  background-color: var(--background);
+  color: var(--gray-1);
+}
+
+/* NAV BAR */
+
+header nav {
+  width: 100%;
+  background-color: var(--dark);
+  height: 5.3125rem;
+  padding: 0 3.125rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav p {
+  font-family: "Sansita";
+  font-size: 1.5rem;
+  color: var(--background);
+}
+
+header nav .nav-links {
+  width: 24.3125rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+header nav .nav-links a {
+  font-family: "Lora";
+  font-style: italic;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--background);
+}
+
+header nav .nav-links a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--enphasis);
+  text-decoration-thickness: 0.125rem;
+}
