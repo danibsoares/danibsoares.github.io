@@ -56,3 +56,51 @@ header nav .nav-links a:hover {
   text-decoration-color: var(--enphasis);
   text-decoration-thickness: 0.125rem;
 }
+
+/* BANNER SECTION */
+
+main .banner-content {
+  background-color: var(--dark);
+  height: 35.1875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+main .banner-content h1 {
+  font-family: "Sansita";
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--background);
+}
+
+main .banner-content h2 {
+  font-family: "Lora";
+  font-style: italic;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--background);
+}
+
+main .banner-content button {
+  color: var(--background);
+  font-weight: 600;
+  background-color: var(--enphasis);
+  width: 9.6875rem;
+  height: 2.8125rem;
+  border: none;
+  border-radius: 1.875rem;
+}
+
+main .banner-content button:hover, .social-links a:hover {
+  transform: scale(110%);
+  transition-delay: 1ms;
+  transition-duration: 1s;
+}
+
+main .banner-content .social-links {
+  display: flex;
+  gap: 1rem;
+}
