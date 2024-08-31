@@ -84,18 +84,16 @@ main .banner-content h2 {
   color: var(--background);
 }
 
-main .banner-content button, .about-container button {
+main .banner-content button, .about-container button, .cards-container .card button {
   color: var(--background);
   font-weight: 600;
   background-color: var(--enphasis);
-  /* width: 9.6875rem;
-  height: 2.8125rem; */
   padding: 0.75rem 1.25rem;
   border: none;
   border-radius: 1.875rem;
 }
 
-main .banner-content button:hover, .social-links a:hover, .about-container button:hover {
+main .banner-content button:hover, .social-links a:hover, .about-container button:hover, .cards-container .card button:hover {
   transform: scale(110%);
   transition-delay: 1ms;
   transition-duration: 1s;
@@ -117,7 +115,7 @@ main .about-container {
   gap: 3.125rem;
 }
 
-main .about-container h2 {
+main .about-container h2, main .skills h2 {
   font-family: "Lora";
   font-style: italic;
   font-size: 1.5rem;
@@ -129,4 +127,39 @@ main .about-container p {
   display: block;
   width: 42.25rem;
   text-align: center;
+}
+
+/* SKILLS SECTION */
+
+main .skills {
+  display: flex;
+  flex-direction: column;
+  gap: 3.125rem;
+  align-items: center;
+  justify-content: center;
+}
+
+main .skills h2 {
+  text-align: center;
+}
+
+main .cards-container {
+  height: 37.3125rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 3.125rem;
+}
+
+main .cards-container .card {
+  width: 15.625rem;
+  height: 16.875rem;
+  padding: 1.875rem;
+  background-color: var(--gray-2);
+  border-radius: 0.625rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.875rem;
 }
