@@ -115,7 +115,7 @@ main .about-container {
   gap: 3.125rem;
 }
 
-main .about-container h2, main .skills h2 {
+main .about-container h2, main .skills h2, main #work h2 {
   font-family: "Lora";
   font-style: italic;
   font-size: 1.5rem;
@@ -123,7 +123,7 @@ main .about-container h2, main .skills h2 {
   color: var(--dark);
 }
 
-main .about-container p {
+main .about-container p, #work p {
   display: block;
   width: 42.25rem;
   text-align: center;
@@ -162,4 +162,68 @@ main .cards-container .card {
   align-items: center;
   justify-content: center;
   gap: 1.875rem;
+}
+
+main .cards-container .card .skill-title{
+  font-size: 1.25rem;
+}
+
+main .cards-container .card p {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* WORK SECTION */
+
+main #work {
+  height: 44.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.125rem;
+}
+
+main #work .carousel-cards-container {
+  width: 100%;
+  display: flex;
+  gap: 3.125rem;
+  align-items: center;
+  justify-content: center;
+}
+
+main #work .carousel-cards-container .carousel-navigation {
+  display: flex;
+  align-items: center;
+}
+
+main #work .carousel-cards-container .carousel-navigation .carousel-card {
+  width: 17.8125rem;
+  height: 18.1875rem;
+  padding: 1.875rem 1.875rem 1.875rem 1.875rem;
+  background-color: var(--gray-2);
+  border-radius: 0.625rem;
+  /* padding-top: 24px;
+  padding-bottom: 16px; */
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.625rem;
+}
+
+main #work .carousel-cards-container .carousel-navigation .carousel-card figure #carousel-card-image {
+  width: 14.9375;
+  height: 10.75rem;
+  border-radius: 0.625rem;
+}
+
+main #work .carousel-cards-container .carousel-navigation .carousel-card .work-tag {
+   font-size: 0.875rem;
+   color: var(--enphasis);
+   font-weight: 700;
+   text-align: left;
+   text-decoration: none;
 }
