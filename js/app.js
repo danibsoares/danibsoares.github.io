@@ -275,13 +275,20 @@ const DB_ARCHIVE = [
    ---------------------------------------------------------------- */
 
 const MODES = ['light', 'dark'];
-let currentMode = 'light';
+const MODE_LABELS = { light: 'Light', dark: 'Dark' };
+
+let currentMode = (function () {
+  var attr = document.documentElement.getAttribute('data-db-mode');
+  return MODES.includes(attr) ? attr : 'light';
+}());
 
 function applyMode(mode) {
+  if (!MODES.includes(mode)) mode = 'light';
   currentMode = mode;
   document.documentElement.setAttribute('data-db-mode', mode);
+  try { localStorage.setItem('db-mode', mode); } catch (e) {}
   const label = document.getElementById('theme-label');
-  if (label) label.textContent = mode === 'light' ? 'LIGHT' : mode.charAt(0).toUpperCase() + mode.slice(1);
+  if (label) label.textContent = MODE_LABELS[mode] || mode;
 }
 
 function cycleMode() {
@@ -297,7 +304,6 @@ let currentPage = 'home';
 let currentCaseId = null;
 
 function navigate(page, caseId) {
-  // Hide current page
   const prev = document.getElementById('page-' + currentPage);
   if (prev) {
     prev.classList.remove('db-page--active');
@@ -307,33 +313,25 @@ function navigate(page, caseId) {
   currentPage = page;
   currentCaseId = caseId || null;
 
-  // If detalhe, render it first
-  if (page === 'detalhe') {
-    renderDetalhe(caseId || 'support');
-  }
+  if (page === 'detalhe') renderDetalhe(caseId || 'support');
+  if (page === 'projetos') initProjetos();
 
-  // Show new page
   const next = document.getElementById('page-' + page);
   if (next) {
     next.hidden = false;
     next.classList.add('db-page--active');
   }
 
-  // Update nav active state
   document.querySelectorAll('.db-nav__link').forEach(function(link) {
-    const target = link.dataset.nav;
-    const isActive = target === page || (page === 'detalhe' && target === 'projetos');
-    link.classList.toggle('db-nav__link--active', isActive);
+    const t = link.dataset.nav;
+    link.classList.toggle('db-nav__link--active', t === page || (page === 'detalhe' && t === 'projetos'));
   });
 
-  // Update mobile menu active state
   document.querySelectorAll('.db-mobile-menu__link').forEach(function(link) {
-    const target = link.dataset.nav;
-    const isActive = target === page || (page === 'detalhe' && target === 'projetos');
-    link.classList.toggle('db-mobile-menu__link--active', isActive);
+    const t = link.dataset.nav;
+    link.classList.toggle('db-mobile-menu__link--active', t === page || (page === 'detalhe' && t === 'projetos'));
   });
 
-  // Scroll to top
   window.scrollTo(0, 0);
 }
 
@@ -445,6 +443,8 @@ function buildNumbersStrip(items) {
    6. PAGE: HOME — populate carousels
    ---------------------------------------------------------------- */
 
+let homeCurrentIdx = 0;
+
 function initHome() {
   const carousel = document.getElementById('home-carousel');
   if (!carousel || carousel.dataset.init) return;
@@ -457,7 +457,28 @@ function initHome() {
   const footerEl = carousel.closest('#page-home').querySelector('[data-component="footer"]');
   if (footerEl) footerEl.outerHTML = buildFooter();
 
-  bindFooterNav('#page-home');
+  bindCaseKeyboard('#page-home');
+  updateHomeCounter();
+}
+
+function updateHomeCounter() {
+  const el = document.getElementById('home-counter');
+  if (!el) return;
+  el.textContent = String(homeCurrentIdx + 1).padStart(2, '0') + ' / ' + String(DB_CASES.length).padStart(2, '0');
+  const prev = document.getElementById('home-prev');
+  const next = document.getElementById('home-next');
+  if (prev) prev.disabled = homeCurrentIdx === 0;
+  if (next) next.disabled = homeCurrentIdx === DB_CASES.length - 1;
+}
+
+function scrollHomeCarousel(dir) {
+  const carousel = document.getElementById('home-carousel');
+  if (!carousel) return;
+  const items = carousel.querySelectorAll('.db-carousel__item');
+  if (!items.length) return;
+  homeCurrentIdx = Math.max(0, Math.min(DB_CASES.length - 1, homeCurrentIdx + dir));
+  items[homeCurrentIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+  updateHomeCounter();
 }
 
 /* ----------------------------------------------------------------
@@ -498,7 +519,7 @@ function initProjetos() {
   const footerEl = page.querySelector('[data-component="footer"]');
   if (footerEl) footerEl.outerHTML = buildFooter();
 
-  bindFooterNav('#page-projetos');
+  bindCaseKeyboard('#page-projetos');
   updateProjetosCounter();
 }
 
@@ -575,7 +596,7 @@ function renderDetalhe(caseId) {
 
     <div class="db-problema">
       <div class="db-problema__grid">
-        <div class="db-mono" style="">01 · O problema</div>
+        <div class="db-mono">01 · O problema</div>
         <div>
           <h2 class="db-h2">${italicTitle(c.problema.heading.replace(/<em>/g, '').replace(/<\/em>/g, ''), c.problema.highlightWord)}</h2>
           ${c.problema.body.map(function(p) { return '<p class="db-body">' + escHtml(p) + '</p>'; }).join('')}
@@ -630,7 +651,7 @@ function renderDetalhe(caseId) {
     ${buildFooter()}
   `;
 
-  bindFooterNav('#page-detalhe');
+  bindCaseKeyboard('#page-detalhe');
 }
 
 /* ----------------------------------------------------------------
@@ -643,7 +664,7 @@ function initSobre() {
   page.dataset.init = '1';
   const footerEl = page.querySelector('[data-component="footer"]');
   if (footerEl) footerEl.outerHTML = buildFooter();
-  bindFooterNav('#page-sobre');
+  bindCaseKeyboard('#page-sobre');
 }
 
 function initContato() {
@@ -652,27 +673,17 @@ function initContato() {
   page.dataset.init = '1';
   const footerEl = page.querySelector('[data-component="footer"]');
   if (footerEl) footerEl.outerHTML = buildFooter();
-  bindFooterNav('#page-contato');
+  bindCaseKeyboard('#page-contato');
 }
 
 /* ----------------------------------------------------------------
-   10. FOOTER NAV BINDING
+   10. KEYBOARD NAV FOR [data-case] ELEMENTS
    ---------------------------------------------------------------- */
 
-function bindFooterNav(scope) {
+function bindCaseKeyboard(scope) {
   const el = document.querySelector(scope);
   if (!el) return;
-  el.querySelectorAll('[data-nav]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      const target = btn.dataset.nav;
-      closeMenu();
-      navigate(target);
-    });
-  });
   el.querySelectorAll('[data-case]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      navigate('detalhe', btn.dataset.case);
-    });
     btn.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -748,6 +759,9 @@ function initContactForm() {
    ---------------------------------------------------------------- */
 
 function init() {
+  // Sync label to whatever mode was detected/restored before JS loaded
+  applyMode(currentMode);
+
   // Theme toggle
   const themeBtn = document.getElementById('theme-toggle');
   if (themeBtn) themeBtn.addEventListener('click', cycleMode);
@@ -764,6 +778,30 @@ function init() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeMenu();
   });
+
+  // Home carousel prev/next
+  const homePrev = document.getElementById('home-prev');
+  const homeNext = document.getElementById('home-next');
+  if (homePrev) homePrev.addEventListener('click', function() { scrollHomeCarousel(-1); });
+  if (homeNext) homeNext.addEventListener('click', function() { scrollHomeCarousel(1); });
+
+  // Home carousel — sync counter on drag/scroll
+  const homeCarousel = document.getElementById('home-carousel');
+  if (homeCarousel) {
+    homeCarousel.addEventListener('scroll', function() {
+      const items = homeCarousel.querySelectorAll('.db-carousel__item');
+      let closest = 0;
+      let minDist = Infinity;
+      items.forEach(function(item, i) {
+        const dist = Math.abs(item.getBoundingClientRect().left - homeCarousel.getBoundingClientRect().left);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      if (closest !== homeCurrentIdx) {
+        homeCurrentIdx = closest;
+        updateHomeCounter();
+      }
+    }, { passive: true });
+  }
 
   // Projetos carousel prev/next
   const prevBtn = document.getElementById('projetos-prev');
@@ -822,50 +860,6 @@ function init() {
 
   // Navigate to home to set initial state
   navigate('home');
-
-  // After home navigation, init projetos lazily (will be inited on first visit)
-  // Hook into navigate to init pages on first visit
-}
-
-// Patch navigate to init pages on first visit
-const _origNavigate = navigate;
-window.navigate = function(page, caseId) {
-  _origNavigate(page, caseId);
-  if (page === 'projetos') initProjetos();
-};
-
-// Re-bind navigate to patched version
-function navigate(page, caseId) {
-  // Hide current page
-  const prev = document.getElementById('page-' + currentPage);
-  if (prev) {
-    prev.classList.remove('db-page--active');
-    prev.hidden = true;
-  }
-
-  currentPage = page;
-  currentCaseId = caseId || null;
-
-  if (page === 'detalhe') renderDetalhe(caseId || 'support');
-  if (page === 'projetos') initProjetos();
-
-  const next = document.getElementById('page-' + page);
-  if (next) {
-    next.hidden = false;
-    next.classList.add('db-page--active');
-  }
-
-  document.querySelectorAll('.db-nav__link').forEach(function(link) {
-    const t = link.dataset.nav;
-    link.classList.toggle('db-nav__link--active', t === page || (page === 'detalhe' && t === 'projetos'));
-  });
-
-  document.querySelectorAll('.db-mobile-menu__link').forEach(function(link) {
-    const t = link.dataset.nav;
-    link.classList.toggle('db-mobile-menu__link--active', t === page || (page === 'detalhe' && t === 'projetos'));
-  });
-
-  window.scrollTo(0, 0);
 }
 
 document.addEventListener('DOMContentLoaded', init);

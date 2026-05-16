@@ -94,11 +94,25 @@
   color-scheme: dark;
 }
 
+/* Footer wordmark dot: lime loses contrast on cream footer bg in dark mode */
+[data-db-mode="dark"] .db-footer__wordmark-dot {
+  color: var(--db-saffron);
+}
+
+/* Links inside light-background structures in dark mode → saffron */
+[data-db-mode="dark"] .db-footer a,
+[data-db-mode="dark"] .db-card--lime a,
+[data-db-mode="dark"] .db-card--pink a,
+[data-db-mode="dark"] .db-card--lavender a,
+[data-db-mode="dark"] .db-card--dark a {
+  color: var(--db-saffron);
+}
+
 /* ================================================================
    3. WIREFRAME MODE
    ================================================================ */
 
-/* [data-db-mode="wireframe"] {
+[data-db-mode="wireframe"] {
   --db-bg:             var(--db-wf-paper);
   --db-bg-elevated:    var(--db-wf-stone);
   --db-fg-1:           var(--db-wf-line);
@@ -130,7 +144,7 @@
     linear-gradient(0deg, var(--db-wf-stone) 1px, transparent 1px),
     linear-gradient(90deg, var(--db-wf-stone) 1px, transparent 1px);
   background-size: 32px 32px;
-} */
+}
 
 /* ================================================================
    4. RESET + BASE
@@ -402,6 +416,36 @@ h1, h2, h3, h4, h5, h6 {
   transition: color var(--db-dur-fast) var(--db-ease);
 }
 
+/* ── Language toggle ── */
+.db-lang-toggle {
+  display: flex;
+  align-items: center;
+  border: var(--db-border) solid var(--db-border-color);
+  border-radius: var(--db-radius-pill);
+  padding: 2px;
+  gap: 2px;
+  transition: border-color var(--db-dur-normal) var(--db-ease);
+}
+
+.db-lang-toggle__btn {
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: var(--db-radius-pill);
+  color: var(--db-fg-muted);
+  background: transparent;
+  transition: background var(--db-dur-fast) var(--db-ease),
+              color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-lang-toggle__btn--active {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+}
+
 /* Hamburger — hidden on desktop */
 .db-nav__hamburger {
   display: none;
@@ -460,13 +504,13 @@ button.db-pill {
 
 .db-pill--pink {
   background: var(--db-card-pink);
-  color: var(--db-fg-1);
+  color: var(--db-ink);
   border-color: var(--db-card-pink);
 }
 
 .db-pill--lavender {
   background: var(--db-card-lavender);
-  color: var(--db-fg-1);
+  color: var(--db-ink);
   border-color: var(--db-card-lavender);
 }
 
@@ -530,7 +574,7 @@ button.db-pill {
 
 .db-btn--secondary {
   background: var(--db-card-lime);
-  color: var(--db-fg-1);
+  color: var(--db-ink);
   border-color: var(--db-card-lime);
 }
 
@@ -851,9 +895,57 @@ button.db-pill {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  border-bottom: var(--db-border) solid var(--db-border-color);
-  padding: 0 48px 20px;
-  margin: 0 0 32px;
+  padding: 0 48px 24px;
+}
+
+.db-cases-section__controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.db-cases-section__counter {
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--db-fg-muted);
+  min-width: 52px;
+  text-align: right;
+}
+
+.db-cases-section__btn {
+  width: 36px;
+  height: 36px;
+  border: var(--db-border) solid var(--db-border-color);
+  border-radius: var(--db-radius-pill);
+  background: transparent;
+  color: var(--db-fg-1);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--db-dur-fast) var(--db-ease),
+              color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-cases-section__btn:hover {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+}
+
+.db-cases-section__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .db-cases-section__controls {
+    display: none;
+  }
 }
 
 /* Sobre teaser */
@@ -958,6 +1050,13 @@ button.db-pill {
   color: var(--db-ink) !important;
 }
 
+.db-card--dark .db-card__title,
+.db-card--dark .db-card__num,
+.db-card--dark .db-card__footer,
+.db-card--dark .db-mono {
+  color: var(--db-card-dark-ink) !important;
+}
+
 .db-card--lime .db-card__title .db-italic,
 .db-card--pink .db-card__title .db-italic,
 .db-card--lavender .db-card__title .db-italic {
@@ -986,7 +1085,7 @@ button.db-pill {
 .db-card--lime  { background: var(--db-card-lime); color: var(--db-ink); }
 .db-card--pink  { background: var(--db-card-pink); color: var(--db-ink); }
 .db-card--lavender { background: var(--db-card-lavender); color: var(--db-ink); }
-.db-card--dark  { background: var(--db-surface); color: var(--db-cream); }
+.db-card--dark  { background: var(--db-card-dark); color: var(--db-card-dark-ink); }
 
 .db-card__num {
   font-family: var(--db-font-mono);
@@ -1005,12 +1104,16 @@ button.db-pill {
   margin: 0;
 }
 
-.db-card__title .db-italic {
-  /* dark fill cards: italic highlight should be lime */
-}
+/* .db-card__title .db-italic {
+dark fill cards: italic highlight should be lime
+} */
 
 .db-card--dark .db-card__title .db-italic {
   color: var(--db-card-lime);
+}
+
+[data-db-mode="dark"] .db-card--dark .db-card__title .db-italic {
+  color: var(--db-saffron);
 }
 
 .db-card__footer {
@@ -1403,6 +1506,12 @@ button.db-pill {
   gap: 24px;
 }
 
+.db-card-duo__col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
 .db-card-info {
   border-radius: var(--db-radius-block);
   padding: 36px;
@@ -1599,6 +1708,10 @@ button.db-pill {
   color: var(--db-card-lime);
 }
 
+[data-db-mode="dark"] .db-status__highlight {
+  color: var(--db-saffron);
+}
+
 /* ================================================================
    21. FOOTER
    ================================================================ */
@@ -1736,6 +1849,10 @@ button.db-pill {
   }
 
   .db-nav__theme-toggle-wrap {
+    display: none;
+  }
+
+  .db-lang-toggle {
     display: none;
   }
 

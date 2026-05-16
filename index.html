@@ -9,6 +9,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
+  <script>
+    (function () {
+      var saved = localStorage.getItem('db-mode');
+      var valid = saved === 'light' || saved === 'dark' ? saved : null;
+      var pref = valid || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-db-mode', pref);
+    }());
+  </script>
 </head>
 <body>
 
@@ -22,10 +30,10 @@
     </button>
 
     <nav class="db-nav__links" aria-label="Navegação principal">
-      <a class="db-nav__link db-nav__link--active" data-nav="home">Início</a>
-      <a class="db-nav__link" data-nav="projetos">Projetos</a>
-      <a class="db-nav__link" data-nav="sobre">Sobre</a>
-      <a class="db-nav__link" data-nav="contato">Contato</a>
+      <a class="db-nav__link db-nav__link--active" data-nav="home" data-i18n="nav.home">Início</a>
+      <a class="db-nav__link" data-nav="projetos" data-i18n="nav.projetos">Projetos</a>
+      <a class="db-nav__link" data-nav="sobre" data-i18n="nav.sobre">Sobre</a>
+      <a class="db-nav__link" data-nav="contato" data-i18n="nav.contato">Contato</a>
     </nav>
 
     <div class="db-nav__actions">
@@ -33,6 +41,10 @@
       <button class="db-theme-toggle" id="theme-toggle" aria-label="Alternar tema">
         <span class="db-theme-toggle__label" id="theme-label">Light</span>
       </button>
+      <div class="db-lang-toggle" id="lang-toggle" role="group" aria-label="Language / Idioma">
+        <button class="db-lang-toggle__btn db-lang-toggle__btn--active" data-lang="pt">PT</button>
+        <button class="db-lang-toggle__btn" data-lang="en">EN</button>
+      </div>
       <button class="db-nav__hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
           <path d="M2 2h14M2 7h14M2 12h14"/>
@@ -57,22 +69,22 @@
     <nav class="db-mobile-menu__nav" aria-label="Menu móvel">
       <a class="db-mobile-menu__link" data-nav="home" role="menuitem">
         <span class="db-mobile-menu__num db-mono">01</span>
-        <span class="db-mobile-menu__label">início.</span>
+        <span class="db-mobile-menu__label" data-i18n="mobile.home">início.</span>
         <span class="db-mobile-menu__arrow">→</span>
       </a>
       <a class="db-mobile-menu__link" data-nav="projetos" role="menuitem">
         <span class="db-mobile-menu__num db-mono">02</span>
-        <span class="db-mobile-menu__label">projetos.</span>
+        <span class="db-mobile-menu__label" data-i18n="mobile.projetos">projetos.</span>
         <span class="db-mobile-menu__arrow">→</span>
       </a>
       <a class="db-mobile-menu__link" data-nav="sobre" role="menuitem">
         <span class="db-mobile-menu__num db-mono">03</span>
-        <span class="db-mobile-menu__label">sobre.</span>
+        <span class="db-mobile-menu__label" data-i18n="mobile.sobre">sobre.</span>
         <span class="db-mobile-menu__arrow">→</span>
       </a>
       <a class="db-mobile-menu__link" data-nav="contato" role="menuitem">
         <span class="db-mobile-menu__num db-mono">04</span>
-        <span class="db-mobile-menu__label">contato.</span>
+        <span class="db-mobile-menu__label" data-i18n="mobile.contato">contato.</span>
         <span class="db-mobile-menu__arrow">→</span>
       </a>
     </nav>
@@ -102,7 +114,7 @@
       <!-- Hero -->
       <div class="db-section db-section--hero db-grid-asym">
         <div class="db-blob" aria-hidden="true"></div>
-        <h1 class="db-hero">
+        <h1 class="db-hero" data-i18n-html="home.hero.heading">
           designer<br>
           <em class="db-italic">em transição</em>
         </h1>
@@ -111,12 +123,12 @@
             <span class="db-pill db-pill--lime">UX/UI Design</span>
             <span class="db-pill db-pill--outline">Customer Experience</span>
           </div>
-          <p class="db-body">
+          <p class="db-body" data-i18n="home.hero.body">
             Analista de Suporte SaaS estudando UX/UI Design na EBAC. Trago 8 anos de pesquisa qualitativa disfarçada de atendimento. Cada bug, cada dúvida, cada padrão — vira insight de produto.
           </p>
           <div class="db-hero-actions">
-            <button class="db-btn db-btn--primary" data-nav="projetos">Ver cases →</button>
-            <button class="db-btn db-btn--ghost" data-nav="sobre">Sobre mim</button>
+            <button class="db-btn db-btn--primary" data-nav="projetos" data-i18n="home.hero.cta1">Ver cases →</button>
+            <button class="db-btn db-btn--ghost" data-nav="sobre" data-i18n="home.hero.cta2">Sobre mim</button>
           </div>
         </div>
       </div>
@@ -129,7 +141,7 @@
             <span class="db-numbers-strip__value">06</span>
           </div>
           <div class="db-numbers-strip__item">
-            <span class="db-mono">Anos escutando</span>
+            <span class="db-mono" data-i18n="home.numbers.years">Anos escutando</span>
             <span class="db-numbers-strip__value db-numbers-strip__value--highlight">8+</span>
           </div>
           <!-- <div class="db-numbers-strip__item">
@@ -147,11 +159,15 @@
       <section class="db-cases-section" aria-label="Cases">
         <div class="db-cases-section__header">
           <h2 class="db-hero--md">cases</h2>
-          <span class="db-mono">06 projetos</span>
+          <div class="db-cases-section__controls">
+            <span class="db-cases-section__counter" id="home-counter">01 / 06</span>
+            <button class="db-cases-section__btn" id="home-prev" aria-label="Case anterior" disabled>←</button>
+            <button class="db-cases-section__btn" id="home-next" aria-label="Próximo case">→</button>
+          </div>
         </div>
         <div class="db-carousel" id="home-carousel" role="list" aria-label="Carrossel de cases"></div>
         <div class="db-carousel-footer">
-          <button class="db-pill db-pill--outline" data-nav="projetos">Ver todos →</button>
+          <button class="db-pill db-pill--outline" data-nav="projetos" data-i18n="home.carousel.viewAll">Ver todos →</button>
         </div>
       </section>
       </div>
@@ -164,13 +180,13 @@
           <!-- <span class="db-pill db-pill--dashed">SOBRE</span> -->
         </div>
         <div class="db-sobre-teaser__content">
-          <h2 class="db-hero--md">
+          <h2 class="db-hero--md" data-i18n-html="home.teaser.heading">
             8 anos de <em class="db-italic">escuta</em>.
           </h2>
-          <p class="db-body">
+          <p class="db-body" data-i18n="home.teaser.body">
             Cada ticket que abri, cada dúvida que respondi, cada padrão que mapeei — virou matéria-prima de design. Hoje traduzo essa escuta em pesquisa, fluxos e systems.
           </p>
-          <button class="db-btn db-btn--ghost" data-nav="sobre">Conhecer melhor →</button>
+          <button class="db-btn db-btn--ghost" data-nav="sobre" data-i18n="home.teaser.cta">Conhecer melhor →</button>
         </div>
       </div>
 
@@ -257,10 +273,17 @@
       <!-- Estudo / Trabalho cards -->
       <div class="db-sobre-cards">
         <div class="db-card-duo">
-          <div class="db-card-info db-card-info--light">
-            <span class="db-mono">Estudo</span>
-            <h2 class="db-h3">EBAC · UX/UI Design</h2>
-            <p class="db-body--sm">Curso completo. Foco em pesquisa, sistemas de design, prototipação avançada em Figma.</p>
+          <div class="db-card-duo__col">
+            <div class="db-card-info db-card-info--light">
+              <span class="db-mono">Estudo</span>
+              <h2 class="db-h3">EBAC · UX/UI Design</h2>
+              <p class="db-body--sm">Curso completo. Foco em pesquisa, sistemas de design, prototipação avançada em Figma.</p>
+            </div>
+            <div class="db-card-info db-card-info--light">
+              <span class="db-mono">Estudo · Graduação</span>
+              <h2 class="db-h3">Cruzeiro do Sul · Tecnólogo em Design de Experiência</h2>
+              <p class="db-body--sm">Graduação tecnológica com foco em UX, pesquisa com usuário, prototipação e estratégia de produto.</p>
+            </div>
           </div>
           <div class="db-card-info db-card-info--dark">
             <span class="db-mono">Trabalho</span>
@@ -372,7 +395,7 @@
           </div>
           <div class="db-direct-card db-direct-card--status">
             <span class="db-mono db-mono--muted">Status</span>
-            <p>Aceitando novos projetos a partir de <strong class="db-status__highlight">2026</strong>. Respondo em até 48h.</p>
+            <p>Aceitando novos projetos. Respondo em até <strong class="db-status__highlight">48h</strong>.</p>
           </div>
         </div>
 
