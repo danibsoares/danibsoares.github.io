@@ -1,0 +1,1938 @@
+/* ================================================================
+   DANIELLA BASTOS PORTFOLIO — main.css
+   Daniella Bastos Design System · Light / Dark / Wireframe
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ================================================================
+   1. DESIGN TOKENS — Light mode (default)
+   ================================================================ */
+
+:root {
+  /* Color · base */
+  --db-cream:          #F5F0E8;
+  --db-cream-soft:     #FAF7F0;
+  --db-paper:          #FFFFFF;
+  --db-ink:            #0E0E0E;
+  --db-ink-soft:       #1A1A1A;
+
+  /* Color · accent */
+  --db-lime:           #DDFF45;
+  --db-saffron:        #FF6B35;
+  --db-pink:           #FFB8D9;
+  --db-lavender:       #B5A3F0;
+
+  /* Color · dark mode base */
+  --db-pitch:          #000000;
+  --db-surface:        #1A1A1A;
+
+  /* Color · wireframe */
+  --db-wf-paper:       #FFFFFF;
+  --db-wf-stone:       #E8E6E0;
+  --db-wf-ash:         #B5B2AA;
+  --db-wf-line:        #1A1A1A;
+
+  /* Semantic tokens (light mode) */
+  --db-bg:             var(--db-cream);
+  --db-bg-elevated:    var(--db-paper);
+  --db-fg-1:           var(--db-ink);
+  --db-fg-2:           var(--db-ink-soft);
+  --db-fg-muted:       rgba(14, 14, 14, 0.6);
+  --db-border-color:   var(--db-ink);
+  --db-highlight:      var(--db-saffron);
+  --db-blob:           var(--db-lime);
+  --db-blob-border:    none;
+  --db-card-lime:      var(--db-lime);
+  --db-card-pink:      var(--db-pink);
+  --db-card-lavender:  var(--db-lavender);
+  --db-card-dark:      var(--db-ink);
+  --db-card-dark-ink:  var(--db-cream);
+
+  /* Typography */
+  --db-font-display:   'Bricolage Grotesque', system-ui, sans-serif;
+  --db-font-serif:     'Instrument Serif', Georgia, serif;
+  --db-font-body:      'DM Sans', system-ui, sans-serif;
+  --db-font-mono:      'JetBrains Mono', ui-monospace, monospace;
+
+  /* Radii (strict) */
+  --db-radius-pill:    9999px;
+  --db-radius-card:    16px;
+  --db-radius-block:   24px;
+
+  /* Borders (strict) */
+  --db-border:         1.5px;
+
+  /* Elevation */
+  --db-shadow:         0 30px 80px rgba(0, 0, 0, 0.08);
+
+  /* Motion */
+  --db-ease:           cubic-bezier(0.4, 0, 0.2, 1);
+  --db-dur-fast:       150ms;
+  --db-dur-normal:     200ms;
+}
+
+/* ================================================================
+   2. DARK MODE
+   ================================================================ */
+
+[data-db-mode="dark"] {
+  --db-bg:             var(--db-pitch);
+  --db-bg-elevated:    var(--db-surface);
+  --db-fg-1:           var(--db-cream);
+  --db-fg-2:           rgba(245, 240, 232, 0.85);
+  --db-fg-muted:       rgba(245, 240, 232, 0.6);
+  --db-border-color:   var(--db-cream);
+  --db-highlight:      var(--db-lime);
+  --db-blob:           var(--db-saffron);
+  --db-blob-border:    none;
+  --db-card-lime:      var(--db-lime);
+  --db-card-pink:      var(--db-pink);
+  --db-card-lavender:  var(--db-lavender);
+  --db-card-dark:      var(--db-cream);
+  --db-card-dark-ink:  var(--db-ink);
+  color-scheme: dark;
+}
+
+/* ================================================================
+   3. WIREFRAME MODE
+   ================================================================ */
+
+/* [data-db-mode="wireframe"] {
+  --db-bg:             var(--db-wf-paper);
+  --db-bg-elevated:    var(--db-wf-stone);
+  --db-fg-1:           var(--db-wf-line);
+  --db-fg-2:           var(--db-wf-line);
+  --db-fg-muted:       var(--db-wf-ash);
+  --db-border-color:   var(--db-wf-line);
+  --db-highlight:      var(--db-wf-ash);
+  --db-blob:           transparent;
+  --db-blob-border:    1.5px dashed var(--db-wf-line);
+  --db-card-lime:      var(--db-wf-stone);
+  --db-card-pink:      var(--db-wf-stone);
+  --db-card-lavender:  var(--db-wf-stone);
+  --db-card-dark:      var(--db-wf-stone);
+  --db-card-dark-ink:  var(--db-wf-line);
+}
+
+[data-db-mode="wireframe"] .db-card,
+[data-db-mode="wireframe"] .db-pill {
+  border-style: dashed !important;
+}
+
+[data-db-mode="wireframe"] .db-card {
+  background: var(--db-bg-elevated) !important;
+  color: var(--db-fg-1) !important;
+}
+
+[data-db-mode="wireframe"] .db-cover__inner {
+  background-image:
+    linear-gradient(0deg, var(--db-wf-stone) 1px, transparent 1px),
+    linear-gradient(90deg, var(--db-wf-stone) 1px, transparent 1px);
+  background-size: 32px 32px;
+} */
+
+/* ================================================================
+   4. RESET + BASE
+   ================================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--db-bg);
+  color: var(--db-fg-1);
+  font-family: var(--db-font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background var(--db-dur-normal) var(--db-ease),
+              color var(--db-dur-normal) var(--db-ease);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+}
+
+/* ================================================================
+   5. TYPOGRAPHY UTILITIES
+   ================================================================ */
+
+.db-hero {
+  font-family: var(--db-font-display);
+  font-weight: 800;
+  font-size: clamp(56px, 10vw, 168px);
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  color: var(--db-fg-1);
+}
+
+.db-hero--md {
+  font-family: var(--db-font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 7vw, 96px);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  color: var(--db-fg-1);
+}
+
+.db-h2 {
+  font-family: var(--db-font-display);
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 72px);
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--db-fg-1);
+}
+
+.db-h3 {
+  font-family: var(--db-font-display);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--db-fg-1);
+}
+
+.db-body {
+  font-family: var(--db-font-body);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--db-fg-2);
+  text-wrap: pretty;
+}
+
+.db-body--sm {
+  font-family: var(--db-font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--db-fg-2);
+}
+
+.db-body--lg {
+  font-family: var(--db-font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--db-fg-2);
+  text-wrap: pretty;
+}
+
+.db-mono {
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--db-fg-2);
+}
+
+.db-mono--wide {
+  letter-spacing: 0.1em;
+}
+
+.db-mono--muted {
+  color: var(--db-fg-muted);
+}
+
+/* Instrument Serif italic highlight — one word per headline */
+.db-italic {
+  font-family: var(--db-font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--db-highlight);
+  letter-spacing: -0.02em;
+}
+
+/* ================================================================
+   6. LAYOUT
+   ================================================================ */
+
+.db-grid-asym {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+}
+
+.db-grid-asym--rev {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 48px;
+}
+
+/* ================================================================
+   7. PAGES
+   ================================================================ */
+
+.db-page {
+  display: none;
+}
+
+.db-page--active {
+  display: block;
+}
+
+/* ================================================================
+   8. NAV
+   ================================================================ */
+
+.db-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  background: var(--db-bg);
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: background var(--db-dur-normal) var(--db-ease),
+              border-color var(--db-dur-normal) var(--db-ease);
+}
+
+.db-nav__wordmark-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.db-wordmark {
+  font-family: var(--db-font-display);
+  font-weight: 800;
+  font-size: 32px;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  color: var(--db-fg-1);
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.db-wordmark__dot {
+  color: var(--db-highlight);
+  letter-spacing: 0;
+  transition: color var(--db-dur-normal) var(--db-ease);
+}
+
+.db-nav__links {
+  display: flex;
+  gap: 36px;
+}
+
+.db-nav__link {
+  font-family: var(--db-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--db-fg-muted);
+  cursor: pointer;
+  border-bottom: var(--db-border) solid transparent;
+  padding-bottom: 2px;
+  transition: color var(--db-dur-fast) var(--db-ease),
+              border-color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-nav__link:hover {
+  color: var(--db-fg-1);
+}
+
+.db-nav__link--active {
+  color: var(--db-fg-1);
+  border-bottom-color: var(--db-fg-1);
+}
+
+.db-nav__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Theme toggle button */
+.db-theme-toggle {
+  background: transparent;
+  border: var(--db-border) solid var(--db-border-color);
+  border-radius: var(--db-radius-pill);
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background var(--db-dur-fast) var(--db-ease),
+              color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-theme-toggle:hover {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+}
+
+.db-theme-toggle:hover .db-theme-toggle__label {
+  color: var(--db-bg);
+}
+
+.db-theme-toggle__label {
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--db-fg-2);
+  transition: color var(--db-dur-fast) var(--db-ease);
+}
+
+/* Hamburger — hidden on desktop */
+.db-nav__hamburger {
+  display: none;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--db-radius-pill);
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+  border: var(--db-border) solid var(--db-fg-1);
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--db-dur-fast) var(--db-ease);
+}
+
+.db-nav__hamburger:hover {
+  opacity: 0.8;
+}
+
+/* ================================================================
+   9. PILLS
+   ================================================================ */
+
+.db-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--db-radius-pill);
+  border: var(--db-border) solid transparent;
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  user-select: none;
+  transition: background var(--db-dur-fast) var(--db-ease),
+              color var(--db-dur-fast) var(--db-ease),
+              border-color var(--db-dur-fast) var(--db-ease);
+}
+
+button.db-pill {
+  cursor: pointer;
+}
+
+.db-pill--ink {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+  border-color: var(--db-fg-1);
+}
+
+.db-pill--lime {
+  background: var(--db-card-lime);
+  color: var(--db-ink);
+  border-color: var(--db-card-lime);
+}
+
+.db-pill--pink {
+  background: var(--db-card-pink);
+  color: var(--db-fg-1);
+  border-color: var(--db-card-pink);
+}
+
+.db-pill--lavender {
+  background: var(--db-card-lavender);
+  color: var(--db-fg-1);
+  border-color: var(--db-card-lavender);
+}
+
+.db-pill--outline {
+  background: transparent;
+  color: var(--db-fg-1);
+  border-color: var(--db-border-color);
+}
+
+.db-pill--outline:hover {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+  border-color: var(--db-fg-1);
+}
+
+.db-pill--dashed {
+  background: transparent;
+  color: var(--db-fg-1);
+  border-color: var(--db-border-color);
+  border-style: dashed;
+}
+
+/* ================================================================
+   10. BUTTONS
+   ================================================================ */
+
+.db-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: var(--db-radius-pill);
+  font-family: var(--db-font-body);
+  font-weight: 500;
+  font-size: 15px;
+  border: var(--db-border) solid transparent;
+  cursor: pointer;
+  transition: transform var(--db-dur-fast) var(--db-ease),
+              opacity var(--db-dur-fast) var(--db-ease),
+              background var(--db-dur-fast) var(--db-ease),
+              color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-btn:hover {
+  transform: translateY(-1px);
+}
+
+.db-btn:active {
+  transform: translateY(0);
+}
+
+.db-btn--primary {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+  border-color: var(--db-fg-1);
+}
+
+.db-btn--primary:hover {
+  opacity: 0.85;
+}
+
+.db-btn--secondary {
+  background: var(--db-card-lime);
+  color: var(--db-fg-1);
+  border-color: var(--db-card-lime);
+}
+
+.db-btn--secondary:hover {
+  opacity: 0.85;
+}
+
+.db-btn--ghost {
+  background: transparent;
+  color: var(--db-fg-1);
+  border-color: var(--db-border-color);
+}
+
+.db-btn--ghost:hover {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+}
+
+.db-btn--icon {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  justify-content: center;
+  font-size: 18px;
+}
+
+/* ================================================================
+   11. MOBILE MENU
+   ================================================================ */
+
+.db-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--db-bg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-mobile-menu[hidden] {
+  display: none;
+}
+
+.db-mobile-menu__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 20px;
+  border-bottom: var(--db-border) solid var(--db-border-color);
+}
+
+.db-mobile-menu__close {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--db-radius-pill);
+  background: transparent;
+  color: var(--db-fg-1);
+  border: var(--db-border) solid var(--db-border-color);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--db-font-mono);
+  font-size: 20px;
+  transition: background var(--db-dur-fast) var(--db-ease),
+              color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-mobile-menu__close:hover {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+}
+
+.db-mobile-menu__eyebrow {
+  padding: 32px 20px 0;
+  color: var(--db-fg-muted);
+}
+
+.db-mobile-menu__nav {
+  flex: 1;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+}
+
+.db-mobile-menu__link {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  cursor: pointer;
+  font-family: var(--db-font-display);
+  font-weight: 800;
+  font-size: clamp(18px, 10vw, 88px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--db-fg-1);
+  text-decoration: none;
+  transition: opacity var(--db-dur-fast) var(--db-ease);
+}
+
+.db-mobile-menu__link:last-child {
+  border-bottom: none;
+}
+
+.db-mobile-menu__link:hover {
+  opacity: 0.7;
+}
+
+.db-mobile-menu__num {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--db-fg-muted);
+  align-self: flex-start;
+  padding-top: 14px;
+  min-width: 28px;
+  font-weight: 500;
+}
+
+.db-mobile-menu__label {
+  flex: 1;
+}
+
+/* Active state: label becomes italic serif */
+.db-mobile-menu__link--active .db-mobile-menu__label {
+  font-family: var(--db-font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--db-highlight);
+}
+
+.db-mobile-menu__arrow {
+  font-size: 20px;
+  color: var(--db-fg-muted);
+  align-self: center;
+  transition: color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-mobile-menu__link--active .db-mobile-menu__arrow {
+  color: var(--db-highlight);
+}
+
+.db-mobile-menu__footer {
+  padding: 24px 20px 32px;
+  border-top: var(--db-border) solid var(--db-border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.db-mobile-menu__pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.db-mobile-menu__socials {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.db-mobile-menu__socials a {
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--db-fg-2);
+  cursor: pointer;
+}
+
+/* ================================================================
+   12. SECTIONS (generic containers)
+   ================================================================ */
+
+.db-section {
+  padding: 96px 48px;
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-section--hero {
+  padding: 64px 48px 56px;
+  background: var(--db-bg-elevated);
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  align-items: end;
+  overflow: hidden;
+  position: relative;
+}
+
+.db-section--elevated {
+  background: var(--db-bg-elevated);
+  border-top: var(--db-border) solid var(--db-border-color);
+  border-bottom: var(--db-border) solid var(--db-border-color);
+}
+
+.db-section--carousel {
+  padding: 96px 48px;
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ================================================================
+   13. BLOB
+   ================================================================ */
+
+.db-blob {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: var(--db-blob);
+  border: var(--db-blob-border);
+  border-radius: var(--db-radius-pill);
+  right: 80px;
+  top: 60px;
+  z-index: 0;
+  pointer-events: none;
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+/* ================================================================
+   14. HOME PAGE
+   ================================================================ */
+
+/* Hero section */
+.db-section--hero .db-hero {
+  position: relative;
+  z-index: 1;
+}
+
+.db-hero-aside {
+  position: relative;
+  z-index: 1;
+  padding-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.db-hero-pills {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.db-hero-aside .db-body {
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.db-hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Numbers strip */
+.db-numbers-strip {
+  padding: 64px 48px;
+  background: var(--db-bg);
+  border-top: var(--db-border) solid var(--db-border-color);
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-numbers-strip__inner {
+  display: flex;
+  gap: 48px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.db-numbers-strip__item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.db-numbers-strip__value {
+  font-family: var(--db-font-display);
+  font-weight: 800;
+  font-size: clamp(64px, 9vw, 120px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: var(--db-fg-1);
+  transition: color var(--db-dur-normal) var(--db-ease);
+}
+
+.db-numbers-strip__value--highlight {
+  color: var(--db-highlight);
+}
+
+.db-numbers-strip__value--pink {
+  color: var(--db-card-pink);
+}
+
+.db-numbers-strip__value--lavender {
+  color: var(--db-card-lavender);
+}
+
+/* Cases section */
+.db-cases-section {
+  padding: 72px 0 32px;
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-cases-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  padding: 0 48px 20px;
+  margin: 0 0 32px;
+}
+
+/* Sobre teaser */
+.db-sobre-teaser {
+  align-items: center;
+}
+
+.db-sobre-teaser .db-hero--md {
+  margin-bottom: 24px;
+}
+
+.db-sobre-teaser .db-body {
+  margin-bottom: 28px;
+  max-width: 620px;
+}
+
+/* CTA section */
+.db-cta-section {
+  padding: 120px 48px;
+  background: var(--db-bg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-cta-section .db-hero {
+  margin: 0;
+}
+
+/* ================================================================
+   15. CAROUSEL
+   ================================================================ */
+
+.db-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  padding: 8px 24px;
+  padding-left: 48px;
+  scrollbar-width: none;
+}
+
+.db-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.db-carousel__item {
+  scroll-snap-align: start;
+  flex: 0 0 480px;
+}
+
+.db-carousel--lg .db-carousel__item {
+  flex: 0 0 540px;
+}
+
+.db-carousel-footer {
+  padding: 0 48px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.db-carousel-controls {
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -58px;
+}
+
+.db-carousel-controls-home {
+  justify-content: end;
+  align-items: center;
+  padding: 0 48px 20px;
+}
+
+.db-carousel-controls__btns {
+  display: flex;
+  gap: 8px;
+}
+
+/* ================================================================
+   16. CASE CARDS
+   ================================================================ */
+.db-card--lime .db-card__title,
+.db-card--pink .db-card__title,
+.db-card--lavender .db-card__title,
+.db-card--lime .db-card__num,
+.db-card--pink .db-card__num,
+.db-card--lavender .db-card__num,
+.db-card--lime .db-card__footer,
+.db-card--pink .db-card__footer,
+.db-card--lavender .db-card__footer,
+.db-card--lime .db-mono,
+.db-card--pink .db-mono,
+.db-card--lavender .db-mono {
+  color: var(--db-ink) !important;
+}
+
+.db-card--lime .db-card__title .db-italic,
+.db-card--pink .db-card__title .db-italic,
+.db-card--lavender .db-card__title .db-italic {
+  color: var(--db-saffron) !important;
+}
+
+.db-card {
+  background: var(--db-card-lime);
+  color: var(--db-ink);
+  border: var(--db-border) solid var(--db-border-color);
+  padding: 28px;
+  border-radius: var(--db-radius-card);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 8px;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  transition: transform var(--db-dur-fast) var(--db-ease),
+              background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-card:hover {
+  transform: translateY(-2px);
+}
+
+.db-card--lime  { background: var(--db-card-lime); color: var(--db-ink); }
+.db-card--pink  { background: var(--db-card-pink); color: var(--db-ink); }
+.db-card--lavender { background: var(--db-card-lavender); color: var(--db-ink); }
+.db-card--dark  { background: var(--db-surface); color: var(--db-cream); }
+
+.db-card__num {
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.db-card__title {
+  font-family: var(--db-font-display);
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  align-self: end;
+  margin: 0;
+}
+
+.db-card__title .db-italic {
+  /* dark fill cards: italic highlight should be lime */
+}
+
+.db-card--dark .db-card__title .db-italic {
+  color: var(--db-card-lime);
+}
+
+.db-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.db-card__arrow {
+  width: 32px;
+  height: 32px;
+  border: var(--db-border) solid currentColor;
+  border-radius: var(--db-radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+/* ================================================================
+   17. PROJETOS PAGE
+   ================================================================ */
+
+.db-projetos-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 8px;
+}
+
+.db-projetos-aside .db-body {
+  font-size: 15px;
+}
+
+.db-filter-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Archive list */
+.db-archive {
+  padding: 96px 48px;
+}
+
+.db-archive__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+}
+
+.db-archive-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 200px 80px;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  cursor: pointer;
+  padding-left: 0;
+  transition: padding-left var(--db-dur-fast) var(--db-ease);
+}
+
+.db-archive-item:hover {
+  padding-left: 12px;
+}
+
+.db-archive-item__year {
+  text-align: right;
+}
+
+/* ================================================================
+   18. CASE DETAIL PAGE
+   ================================================================ */
+
+.db-detalhe-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-detalhe-topbar__back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--db-fg-2);
+  transition: color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-detalhe-topbar__back:hover {
+  color: var(--db-fg-1);
+}
+
+.db-detalhe-cover-section {
+  padding: 48px 48px 32px;
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+/* Case cover — has its own local theme via data-cover-mode */
+.db-cover {
+  border-radius: var(--db-radius-block);
+  overflow: hidden;
+  border: var(--db-border) solid var(--db-border-color);
+  box-shadow: var(--db-shadow);
+}
+
+.db-cover[data-cover-mode="light"] {
+  --db-bg-elevated: #FAF7F0;
+  --db-fg-1:        #0E0E0E;
+  --db-fg-2:        #1A1A1A;
+  --db-border-color: #0E0E0E;
+  --db-blob:        #DDFF45;
+  --db-blob-border: none;
+  --db-highlight:   #FF6B35;
+}
+
+.db-cover[data-cover-mode="dark"] {
+  --db-bg-elevated: #0E0E0E;
+  --db-fg-1:        #F5F0E8;
+  --db-fg-2:        rgba(245,240,232,0.85);
+  --db-border-color: #F5F0E8;
+  --db-blob:        #DDFF45;
+  --db-blob-border: none;
+  --db-highlight:   #DDFF45;
+}
+
+/* .db-cover[data-cover-mode="wireframe"] {
+  --db-bg-elevated: #F4F4F2;
+  --db-fg-1:        #1A1A1A;
+  --db-fg-2:        #1A1A1A;
+  --db-border-color: #1A1A1A;
+  --db-blob:        transparent;
+  --db-blob-border: 1.5px dashed #1A1A1A;
+  --db-highlight:   #B5B2AA;
+} */
+
+.db-cover__inner {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  padding: 56px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--db-bg-elevated);
+  color: var(--db-fg-1);
+  overflow: hidden;
+  border-radius: var(--db-radius-block);
+}
+
+.db-cover__blob {
+  position: absolute;
+  top: 120px;
+  right: 80px;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--db-radius-pill);
+  background: var(--db-blob);
+  border: var(--db-blob-border);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.db-cover__header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--db-font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  color: var(--db-fg-1);
+}
+
+.db-cover__title {
+  position: relative;
+  z-index: 1;
+  font-family: var(--db-font-display);
+  font-weight: 800;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.86;
+  letter-spacing: -0.04em;
+  color: var(--db-fg-1);
+  margin: 0;
+  align-self: end;
+}
+
+.db-cover__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: var(--db-border) solid var(--db-border-color);
+  padding-top: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.db-cover__tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Meta grid */
+.db-meta-section {
+  padding: 40px 48px;
+  border-top: var(--db-border) solid var(--db-border-color);
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.db-meta-key {
+  margin-bottom: 12px;
+}
+
+.db-meta-value {
+  font-family: var(--db-font-body);
+  font-size: 15px;
+  color: var(--db-fg-1);
+  font-weight: 500;
+}
+
+/* Problem section */
+.db-problema {
+  padding: 96px 48px;
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-problema__grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 64px;
+}
+
+.db-problema .db-h2 {
+  margin-bottom: 28px;
+}
+
+.db-problema .db-body {
+  max-width: 720px;
+  margin-bottom: 16px;
+}
+
+/* Process section */
+.db-processo {
+  padding: 96px 48px;
+  background: var(--db-bg-elevated);
+  border-top: var(--db-border) solid var(--db-border-color);
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-processo .db-mono {
+  margin-bottom: 16px;
+  display: block;
+}
+
+.db-processo .db-h2 {
+  margin-bottom: 48px;
+}
+
+.db-step {
+  display: grid;
+  grid-template-columns: 80px 1fr 1.4fr;
+  gap: 48px;
+  padding: 32px 0;
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  align-items: start;
+}
+
+.db-step:first-child {
+  border-top: var(--db-border) solid var(--db-border-color);
+}
+
+.db-step__num {
+  padding-top: 8px;
+}
+
+.db-step__body .db-body {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.db-step-artifact {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--db-bg);
+  border: var(--db-border) solid var(--db-border-color);
+  border-radius: var(--db-radius-card);
+  position: relative;
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-step-artifact__label {
+  position: absolute;
+  bottom: 16px;
+  left: 20px;
+}
+
+/* Stack section */
+.db-stack {
+  padding: 64px 48px;
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-stack .db-mono {
+  margin-bottom: 16px;
+  display: block;
+}
+
+.db-stack .db-h2 {
+  margin-bottom: 32px;
+  font-size: clamp(32px, 4.5vw, 56px);
+}
+
+.db-stack__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Next case */
+.db-next-case {
+  padding: 96px 48px;
+  background: var(--db-bg-elevated);
+  border-top: var(--db-border) solid var(--db-border-color);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-next-case__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 32px;
+}
+
+.db-next-case__title {
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+.db-next-case__title .db-next-arrow {
+  color: var(--db-highlight);
+}
+
+.db-next-case__card {
+  max-width: 720px;
+}
+
+/* ================================================================
+   19. SOBRE PAGE
+   ================================================================ */
+
+.db-sobre-bio {
+  padding-bottom: 8px;
+}
+
+.db-sobre-cards {
+  padding: 64px 48px;
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-card-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.db-card-info {
+  border-radius: var(--db-radius-block);
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.db-card-info--light {
+  background: var(--db-bg-elevated);
+  border: var(--db-border) solid var(--db-border-color);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-card-info--dark {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+  border: var(--db-border) solid var(--db-fg-1);
+  transition: background var(--db-dur-normal) var(--db-ease),
+              color var(--db-dur-normal) var(--db-ease);
+}
+
+.db-card-info--dark .db-mono {
+  color: color-mix(in srgb, var(--db-bg) 60%, transparent);
+}
+
+.db-card-info--dark .db-h3 {
+  color: var(--db-bg);
+}
+
+.db-card-info--dark .db-card-info__body {
+  font-family: var(--db-font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--db-bg) 80%, transparent);
+}
+
+/* Tools section */
+.db-tools {
+  padding: 64px 48px 96px;
+}
+
+.db-tools > .db-mono {
+  margin-bottom: 16px;
+  display: block;
+}
+
+.db-tools .db-h2 {
+  margin-bottom: 32px;
+}
+
+.db-tools__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 64px;
+}
+
+.db-tools__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ================================================================
+   20. CONTATO PAGE
+   ================================================================ */
+
+.db-contato-hero {
+  padding: 96px 48px 64px;
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-contato-hero__pills {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.db-contato-hero .db-hero {
+  margin-bottom: 28px;
+}
+
+.db-contato-hero .db-body {
+  max-width: 640px;
+}
+
+.db-contato-body {
+  padding: 64px 48px 96px;
+  background: var(--db-bg);
+  align-items: start;
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-contato-form .db-h3 {
+  margin-bottom: 32px;
+}
+
+.db-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.db-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.db-field__input {
+  font-family: var(--db-font-body);
+  font-size: 17px;
+  color: var(--db-fg-muted);
+  background: transparent;
+  border: none;
+  border-bottom: var(--db-border) solid var(--db-border-color);
+  padding-bottom: 10px;
+  width: 100%;
+  transition: border-color var(--db-dur-fast) var(--db-ease),
+              color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-field__input:focus {
+  outline: none;
+  border-bottom-color: var(--db-fg-1);
+  color: var(--db-fg-1);
+}
+
+.db-field__input--textarea {
+  resize: none;
+  min-height: 96px;
+  padding-top: 10px;
+}
+
+.db-type-pills {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+.db-contato-direct {
+  display: grid;
+  gap: 16px;
+  padding-top: 28px;
+}
+
+.db-direct-card {
+  padding: 28px;
+  background: var(--db-bg-elevated);
+  border: var(--db-border) solid var(--db-border-color);
+  border-radius: var(--db-radius-card);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-direct-card__link {
+  font-family: var(--db-font-display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.015em;
+  color: var(--db-fg-1);
+  transition: color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-direct-card__link:hover {
+  color: var(--db-highlight);
+}
+
+.db-direct-card--status {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+  border-color: var(--db-fg-1);
+}
+
+.db-direct-card--status .db-mono {
+  color: color-mix(in srgb, var(--db-bg) 60%, transparent);
+}
+
+.db-direct-card--status p {
+  font-family: var(--db-font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--db-bg) 80%, transparent);
+}
+
+.db-status__highlight {
+  color: var(--db-card-lime);
+}
+
+/* ================================================================
+   21. FOOTER
+   ================================================================ */
+
+.db-footer {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+  padding: 64px 48px 32px;
+  transition: background var(--db-dur-normal) var(--db-ease),
+              color var(--db-dur-normal) var(--db-ease);
+}
+
+.db-footer__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 64px;
+  border-bottom: var(--db-border) solid color-mix(in srgb, var(--db-bg) 22%, transparent);
+}
+
+.db-footer__wordmark {
+  font-family: var(--db-font-display);
+  font-weight: 800;
+  font-size: 64px;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  color: var(--db-bg);
+}
+
+.db-footer__wordmark-dot {
+  color: var(--db-card-lime);
+  letter-spacing: 0;
+}
+
+.db-footer__tagline {
+  margin-top: 24px;
+  font-family: var(--db-font-body);
+  font-size: 12px;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--db-bg) 70%, transparent);
+  max-width: 320px;
+}
+
+.db-footer__col-label {
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--db-bg) 50%, transparent);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.db-footer__nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.db-footer__nav li {
+  font-family: var(--db-font-display);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: opacity var(--db-dur-fast) var(--db-ease);
+}
+
+.db-footer__nav li:hover {
+  opacity: 0.7;
+}
+
+.db-footer__contact {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.db-footer__contact li {
+  font-family: var(--db-font-display);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.db-footer__contact a {
+  color: inherit;
+  transition: opacity var(--db-dur-fast) var(--db-ease);
+}
+
+.db-footer__contact a:hover {
+  opacity: 0.7;
+}
+
+.db-footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--db-bg) 50%, transparent);
+}
+
+/* ================================================================
+   22. FOCUS STYLES (accessibility)
+   ================================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--db-highlight);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ================================================================
+   23. RESPONSIVE — mobile (< 760px)
+   ================================================================ */
+
+@media (max-width: 760px) {
+  /* Nav */
+  .db-nav {
+    padding: 20px 20px;
+  }
+
+  .db-nav__links {
+    display: none;
+  }
+
+  .db-nav__avail {
+    display: none;
+  }
+
+  .db-nav__theme-toggle-wrap {
+    display: none;
+  }
+
+  .db-nav__hamburger {
+    display: inline-flex;
+  }
+
+  /* Hero grid → single column */
+  .db-section--hero.db-grid-asym,
+  .db-section--hero.db-grid-asym--rev {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 48px 20px 40px;
+  }
+
+  /* Generic grids → single column */
+  .db-grid-asym,
+  .db-grid-asym--rev {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  /* Sections */
+  .db-section {
+    padding: 64px 20px;
+  }
+
+  .db-section--hero {
+    padding: 48px 20px 40px;
+  }
+
+  /* Numbers strip */
+  .db-numbers-strip {
+    padding: 48px 20px;
+  }
+
+  .db-numbers-strip__inner {
+    gap: 32px;
+  }
+
+  .db-numbers-strip__value {
+    font-size: clamp(48px, 14vw, 80px);
+  }
+
+  /* Cases section */
+  .db-cases-section {
+    padding-top: 48px;
+  }
+
+  .db-cases-section__header {
+    padding: 0 20px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Carousel */
+  .db-carousel {
+    padding: 8px 48px 24px;
+  }
+
+  .db-carousel__item {
+    flex: 0 0 84vw;
+  }
+
+  .db-carousel--lg .db-carousel__item {
+    flex: 0 0 84vw;
+  }
+
+  .db-carousel-footer {
+    padding: 0 20px;
+  }
+
+  .db-carousel-controls {
+    padding: 0 20px;
+  }
+
+  /* CTA */
+  .db-cta-section {
+    padding: 80px 20px;
+  }
+
+  /* Blob smaller on mobile */
+  .db-blob {
+    width: 140px;
+    height: 140px;
+    right: 20px;
+    top: 40px;
+  }
+
+  /* Sobre teaser */
+  .db-sobre-teaser {
+    padding: 64px 20px !important;
+  }
+
+  /* Footer */
+  .db-footer {
+    padding: 48px 20px 32px;
+  }
+
+  .db-footer__top {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .db-footer__bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  /* Archive list */
+  .db-archive {
+    padding: 64px 20px;
+  }
+
+  .db-archive-item {
+    grid-template-columns: 40px 1fr;
+    gap: 8px;
+  }
+
+  .db-archive-item__kind,
+  .db-archive-item__year {
+    display: none;
+  }
+
+  /* Process steps */
+  .db-step {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    padding: 20px 0;
+  }
+
+  /* Meta grid */
+  .db-meta-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Detalhe */
+  .db-detalhe-topbar {
+    padding: 20px;
+  }
+
+  .db-detalhe-cover-section {
+    padding: 32px 20px;
+  }
+
+  .db-meta-section {
+    padding: 32px 20px;
+  }
+
+  .db-problema {
+    padding: 64px 20px;
+  }
+
+  .db-problema__grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .db-processo {
+    padding: 64px 20px;
+  }
+
+  .db-stack {
+    padding: 48px 20px;
+  }
+
+  .db-next-case {
+    padding: 64px 20px;
+  }
+
+  /* Sobre */
+  .db-sobre-cards {
+    padding: 48px 20px;
+  }
+
+  .db-card-duo {
+    grid-template-columns: 1fr;
+  }
+
+  .db-tools {
+    padding: 48px 20px 64px;
+  }
+
+  /* Contato */
+  .db-contato-hero {
+    padding: 64px 20px 48px;
+  }
+
+  .db-contato-body {
+    padding: 48px 20px 64px;
+  }
+
+  /* Card info */
+  .db-card-info {
+    padding: 28px;
+  }
+}

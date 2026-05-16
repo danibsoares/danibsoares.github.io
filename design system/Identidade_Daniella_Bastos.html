@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>Daniella Bastos — Identidade Visual de Portfólio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* LIGHT */
+  --ink:#0E0E0E;
+  --ink-soft:#1A1A1A;
+  --cream:#F5F0E8;
+  --cream-soft:#FAF7F0;
+  --paper:#FFFFFF;
+  /* ACCENTS */
+  --lime:#DDFF45;
+  --pink:#FFB8D9;
+  --lavender:#B5A3F0;
+  --saffron:#FF6B35;
+  /* WIREFRAME */
+  --wf-bg:#F4F4F2;
+  --wf-line:#1A1A1A;
+  --wf-fill:#E8E6E0;
+  --wf-mid:#B5B2AA;
+  /* TYPE */
+  --display:'Bricolage Grotesque', system-ui, sans-serif;
+  --serif:'Instrument Serif', Georgia, serif;
+  --body:'DM Sans', system-ui, sans-serif;
+  --mono:'JetBrains Mono', ui-monospace, monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{font-family:var(--body);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+
+/* PAGE = uma "página" de brand book */
+.page{
+  width:1440px;
+  min-height:1620px; height:1620px;
+  padding:80px 96px;
+  position:relative;
+  page-break-after:always;
+  break-after:page;
+  overflow:hidden;
+}
+.page:last-child{page-break-after:auto}
+
+.page-meta{
+  position:absolute;top:32px;left:96px;right:96px;
+  display:flex;justify-content:space-between;
+  font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--ink);opacity:0.6;
+}
+.page-foot{
+  position:absolute;bottom:32px;left:96px;right:96px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;
+}
+
+/* ---------- PAGE 01: COVER ---------- */
+.cover{background:var(--cream)}
+.cover .meta{position:absolute;top:48px;left:96px;right:96px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase}
+.cover h1{
+  font-family:var(--display);
+  font-weight:800;
+  font-size:240px;
+  line-height:0.86;
+  letter-spacing:-0.04em;
+  margin-top:120px;
+}
+.cover h1 em{
+  font-family:var(--serif);
+  font-style:italic;
+  font-weight:400;
+  letter-spacing:-0.02em;
+}
+.cover .lime-dot{
+  position:absolute;
+  width:280px;height:280px;
+  background:var(--lime);
+  border-radius:9999px;
+  right:120px;top:200px;
+  z-index:0;
+}
+.cover h1{position:relative;z-index:1}
+.cover .tag-row{
+  display:flex;gap:12px;margin-top:64px;flex-wrap:wrap;
+}
+.cover .tag{
+  background:var(--ink);color:var(--cream);
+  padding:10px 22px;border-radius:9999px;
+  font-family:var(--mono);font-size:13px;letter-spacing:0.04em;text-transform:uppercase;
+}
+.cover .tag.outline{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.cover .tag.lime{background:var(--lime);color:var(--ink)}
+.cover .footer-info{
+  position:absolute;bottom:48px;left:96px;right:96px;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:48px;
+  padding-top:24px;border-top:1.5px solid var(--ink);
+  font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.06em;
+}
+
+/* ---------- PAGE 02: ESSENCE ---------- */
+.essence{background:var(--ink);color:var(--cream)}
+.essence .page-meta{color:var(--cream);opacity:0.5}
+.essence .label{font-family:var(--mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;margin-top:60px}
+.essence .quote{
+  font-family:var(--display);font-weight:500;font-size:88px;line-height:1.02;letter-spacing:-0.025em;
+  margin-top:40px;max-width:1100px;
+}
+.essence .quote em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--lime)}
+.essence .principles{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:120px;
+}
+.essence .principle{border-top:1.5px solid var(--cream);padding-top:24px}
+.essence .principle .num{font-family:var(--mono);font-size:14px;letter-spacing:0.06em}
+.essence .principle h3{font-family:var(--display);font-weight:700;font-size:24px;line-height:1.1;margin-top:16px;letter-spacing:-0.01em}
+.essence .principle p{font-family:var(--body);font-size:14px;line-height:1.5;margin-top:12px;opacity:0.78}
+
+/* ---------- PAGE 03: WORDMARK ---------- */
+.wordmark{background:var(--cream)}
+.wordmark .lockup{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;margin-top:80px}
+.wordmark .mark-lg{
+  font-family:var(--display);font-weight:800;font-size:280px;line-height:0.85;letter-spacing:-0.06em;
+}
+.wordmark .mark-lg .dot{color:var(--saffron)}
+.wordmark .mark-info h2{font-family:var(--display);font-weight:700;font-size:36px;line-height:1.1;letter-spacing:-0.02em}
+.wordmark .mark-info p{margin-top:20px;font-size:15px;line-height:1.6;max-width:480px;color:var(--ink-soft)}
+.wordmark .variations{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:80px}
+.wordmark .var{
+  aspect-ratio:1.4/1;border:1.5px solid var(--ink);border-radius:24px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-weight:800;font-size:96px;letter-spacing:-0.04em;
+}
+.wordmark .var.dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.wordmark .var.lime{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.wordmark .var .dot{color:var(--saffron)}
+.wordmark .var.dark .dot{color:var(--lime)}
+.wordmark .var.lime .dot{color:var(--ink)}
+
+/* ---------- PAGE 04: PALETTE LIGHT ---------- */
+.palette{background:var(--cream)}
+.section-title{
+  display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1.5px solid var(--ink);padding-bottom:24px;margin-top:80px;
+}
+.section-title h2{font-family:var(--display);font-weight:800;font-size:96px;line-height:0.9;letter-spacing:-0.04em}
+.section-title .lbl{font-family:var(--mono);font-size:13px;letter-spacing:0.1em;text-transform:uppercase}
+
+.swatch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:64px}
+.swatch{border-radius:20px;overflow:hidden;display:flex;flex-direction:column;border:1px solid rgba(0,0,0,0.06)}
+.swatch .color{height:240px;display:flex;align-items:flex-end;padding:20px}
+.swatch .color .role{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;background:rgba(255,255,255,0.85);padding:6px 12px;border-radius:9999px}
+.swatch.on-dark .color .role{background:rgba(255,255,255,0.15);color:#fff;backdrop-filter:blur(4px)}
+.swatch .info{padding:20px;background:var(--paper)}
+.swatch .info .name{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-0.01em}
+.swatch .info .hex{font-family:var(--mono);font-size:13px;margin-top:4px;color:var(--ink-soft)}
+.swatch .info .use{font-size:12px;margin-top:10px;color:var(--ink-soft);line-height:1.4}
+
+.s-ink .color{background:var(--ink)}
+.s-cream .color{background:var(--cream-soft);border-bottom:1px solid var(--ink-soft)}
+.s-lime .color{background:var(--lime)}
+.s-pink .color{background:var(--pink)}
+.s-lavender .color{background:var(--lavender)}
+.s-saffron .color{background:var(--saffron)}
+.s-paper .color{background:var(--paper);border-bottom:1px solid var(--gray-200, #e5e5e5)}
+.s-soft .color{background:#1A1A1A}
+
+.usage-bar{margin-top:48px;display:grid;grid-template-columns:60% 14% 10% 8% 8%;gap:0;border-radius:16px;overflow:hidden;height:56px}
+.usage-bar > div{display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
+.u-cream{background:var(--cream-soft);color:var(--ink)}
+.u-ink{background:var(--ink);color:var(--cream)}
+.u-lime{background:var(--lime);color:var(--ink)}
+.u-pink{background:var(--pink);color:var(--ink)}
+.u-lavender{background:var(--lavender);color:var(--ink)}
+.usage-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft);margin-top:16px}
+
+/* ---------- PAGE 05: PALETTE DARK ---------- */
+.palette-dark{background:var(--ink);color:var(--cream)}
+.palette-dark .page-meta{color:var(--cream);opacity:0.5}
+.palette-dark .section-title{border-color:var(--cream)}
+.palette-dark .swatch{background:var(--ink-soft);border-color:rgba(255,255,255,0.08)}
+.palette-dark .swatch .info{background:var(--ink-soft);color:var(--cream)}
+.palette-dark .swatch .info .hex,.palette-dark .swatch .info .use{color:rgba(245,240,232,0.6)}
+.palette-dark .s-ink-d .color{background:#000000}
+.palette-dark .s-soft-d .color{background:#1A1A1A;border-bottom:1px solid #2A2A2A}
+.palette-dark .s-lime-d .color{background:#DDFF45}
+.palette-dark .s-pink-d .color{background:#FFB8D9}
+.palette-dark .s-lavender-d .color{background:#B5A3F0}
+.palette-dark .s-saffron-d .color{background:#FF6B35}
+.palette-dark .s-cream-d .color{background:var(--cream-soft);color:var(--ink)}
+.palette-dark .s-paper-d .color{background:#FFFFFF;color:var(--ink)}
+
+/* ---------- PAGE 06: WIREFRAME PALETTE ---------- */
+.palette-wf{background:var(--wf-bg)}
+.palette-wf .swatch{border:1.5px solid var(--wf-line);border-radius:0;background:var(--paper)}
+.palette-wf .swatch .info{background:var(--paper)}
+.palette-wf .s-wf1 .color{background:var(--paper);border-bottom:1.5px solid var(--wf-line)}
+.palette-wf .s-wf2 .color{background:var(--wf-fill);border-bottom:1.5px solid var(--wf-line)}
+.palette-wf .s-wf3 .color{background:var(--wf-mid);border-bottom:1.5px solid var(--wf-line)}
+.palette-wf .s-wf4 .color{background:var(--wf-line)}
+
+/* ---------- PAGE 07: TYPOGRAPHY ---------- */
+.typo{background:var(--cream)}
+.typo .specimen{margin-top:64px;border-top:1.5px solid var(--ink);padding-top:40px}
+.typo .specimen + .specimen{margin-top:48px}
+.typo .specimen-head{display:flex;justify-content:space-between;align-items:flex-end}
+.typo .specimen-head .name{font-family:var(--display);font-weight:700;font-size:32px;letter-spacing:-0.015em}
+.typo .specimen-head .meta{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.08em}
+.typo .preview-display{font-family:var(--display);font-weight:800;font-size:200px;line-height:0.9;letter-spacing:-0.05em;margin-top:24px}
+.typo .preview-display em{font-family:var(--serif);font-style:italic;font-weight:400}
+.typo .preview-serif{font-family:var(--serif);font-style:italic;font-size:96px;line-height:1;letter-spacing:-0.01em;margin-top:24px}
+.typo .preview-body{font-family:var(--body);font-weight:400;font-size:24px;line-height:1.55;margin-top:24px;max-width:1000px}
+.typo .preview-mono{font-family:var(--mono);font-weight:500;font-size:32px;line-height:1.4;letter-spacing:0.02em;margin-top:24px;text-transform:uppercase}
+
+.scale{display:grid;grid-template-columns:120px 1fr 200px;gap:0;margin-top:32px}
+.scale-row{display:contents}
+.scale-row > div{border-top:1px solid rgba(0,0,0,0.1);padding:18px 0;display:flex;align-items:center}
+.scale-name{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--ink-soft)}
+.scale-sample{font-family:var(--display);font-weight:700;letter-spacing:-0.02em}
+.scale-meta{font-family:var(--mono);font-size:11px;color:var(--ink-soft);justify-content:flex-end}
+
+/* ---------- PAGE 08: COMPONENTS ---------- */
+.components{background:var(--cream)}
+.comp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;margin-top:64px}
+.comp-card{background:var(--paper);border-radius:24px;padding:40px;border:1px solid rgba(0,0,0,0.06)}
+.comp-card h3{font-family:var(--display);font-weight:700;font-size:28px;letter-spacing:-0.015em}
+.comp-card .desc{font-size:13px;color:var(--ink-soft);margin-top:8px;margin-bottom:32px;max-width:420px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:9999px;font-family:var(--body);font-weight:500;font-size:15px;letter-spacing:0.01em;cursor:pointer;border:none;text-decoration:none;color:inherit}
+.btn-primary{background:var(--ink);color:var(--cream)}
+.btn-secondary{background:var(--lime);color:var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn-icon{width:48px;height:48px;border-radius:9999px;padding:0;justify-content:center;background:var(--ink);color:var(--cream)}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+/* Tags / Pills */
+.pill{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:9999px;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase}
+.pill-ink{background:var(--ink);color:var(--cream)}
+.pill-lime{background:var(--lime);color:var(--ink)}
+.pill-pink{background:var(--pink);color:var(--ink)}
+.pill-lavender{background:var(--lavender);color:var(--ink)}
+.pill-outline{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.pill-row{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Numbers */
+.num-row{display:flex;gap:24px;align-items:flex-end}
+.num{font-family:var(--display);font-weight:800;font-size:120px;line-height:0.85;letter-spacing:-0.04em;color:var(--ink)}
+.num.lime{color:var(--saffron)}
+.num.pink{color:var(--pink)}
+.num-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--ink-soft);margin-bottom:14px}
+
+/* Cards (mini) */
+.mini-card{background:var(--paper);border-radius:16px;padding:24px;border:1.5px solid var(--ink)}
+.mini-card.lime{background:var(--lime);border-color:var(--lime)}
+.mini-card.pink{background:var(--pink);border-color:var(--pink)}
+.mini-card.dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.mini-card .num-sm{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase}
+.mini-card h4{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.1;margin-top:14px;letter-spacing:-0.015em}
+.mini-card .arrow{margin-top:24px;width:36px;height:36px;border:1.5px solid currentColor;border-radius:9999px;display:flex;align-items:center;justify-content:center;font-size:14px}
+.cards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
+/* Arrows */
+.arrows-row{display:flex;gap:24px;align-items:center}
+.arrow-pill{padding:12px 28px;border-radius:9999px;border:1.5px solid var(--ink);font-family:var(--mono);font-size:14px;display:inline-flex;align-items:center;gap:10px}
+.arrow-pill.fill{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.arrow-pill.lime{background:var(--lime);border-color:var(--lime)}
+
+/* ---------- PAGE 09-11: APPLICATIONS ---------- */
+.app{background:var(--cream)}
+.app-mock{background:var(--paper);border-radius:24px;overflow:hidden;margin-top:64px;border:1px solid rgba(0,0,0,0.08);box-shadow:0 30px 80px rgba(0,0,0,0.08)}
+
+/* Case cover - light */
+.case-cover{aspect-ratio:16/9;padding:56px;display:grid;grid-template-rows:auto 1fr auto;background:var(--cream-soft);position:relative}
+.case-cover .case-meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.08em}
+.case-cover h1{font-family:var(--display);font-weight:800;font-size:130px;line-height:0.86;letter-spacing:-0.04em;align-self:end;margin-top:auto}
+.case-cover h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--saffron)}
+.case-cover .case-foot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1.5px solid var(--ink);padding-top:20px}
+.case-cover .case-tags{display:flex;gap:8px}
+.case-cover .lime-blob{position:absolute;top:120px;right:80px;width:200px;height:200px;background:var(--lime);border-radius:9999px;z-index:0}
+.case-cover h1{position:relative;z-index:1}
+
+/* Case cover - dark */
+.case-cover.dark{background:var(--ink);color:var(--cream)}
+.case-cover.dark .case-foot{border-color:var(--cream)}
+.case-cover.dark h1 em{color:var(--lime)}
+
+/* Case cover - wireframe */
+.case-cover.wf{background:var(--wf-bg);position:relative}
+.case-cover.wf::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(0deg,var(--wf-fill) 1px,transparent 1px),linear-gradient(90deg,var(--wf-fill) 1px,transparent 1px);
+  background-size:32px 32px;opacity:0.5;
+}
+.case-cover.wf > *{position:relative;z-index:1}
+.case-cover.wf h1{color:var(--wf-line)}
+.case-cover.wf h1 em{color:var(--wf-mid);font-style:italic;font-family:var(--serif);font-weight:400}
+.case-cover.wf .case-meta,.case-cover.wf .case-foot{color:var(--wf-line)}
+.case-cover.wf .case-foot{border-color:var(--wf-line)}
+.case-cover.wf .lime-blob{background:transparent;border:1.5px dashed var(--wf-line)}
+.case-cover.wf .pill-lime{background:transparent;color:var(--wf-line);border:1.5px solid var(--wf-line)}
+.case-cover.wf .pill-ink{background:transparent;color:var(--wf-line);border:1.5px dashed var(--wf-line)}
+.case-cover.wf .pill-pink{background:transparent;color:var(--wf-line);border:1.5px dotted var(--wf-line)}
+
+/* Slide LinkedIn */
+.li-slides{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.li-slide{aspect-ratio:4/5;border-radius:20px;overflow:hidden;padding:32px;display:grid;grid-template-rows:auto 1fr auto;border:1px solid rgba(0,0,0,0.08)}
+.li-slide .li-num{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase}
+.li-slide h3{font-family:var(--display);font-weight:800;font-size:48px;line-height:0.9;letter-spacing:-0.03em;align-self:end}
+.li-slide h3 em{font-family:var(--serif);font-style:italic;font-weight:400}
+.li-slide .li-foot{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase}
+.li-slide.lime{background:var(--lime);color:var(--ink)}
+.li-slide.dark{background:var(--ink);color:var(--cream)}
+.li-slide.dark h3 em{color:var(--lime)}
+.li-slide.cream{background:var(--cream-soft);color:var(--ink)}
+.li-slide.cream h3 em{color:var(--saffron)}
+.li-slide.pink{background:var(--pink);color:var(--ink)}
+.li-slide.lavender{background:var(--lavender);color:var(--ink)}
+
+/* Portfolio page mock */
+.portfolio{margin-top:64px;background:var(--paper);border-radius:24px;overflow:hidden;border:1px solid rgba(0,0,0,0.08);box-shadow:0 30px 80px rgba(0,0,0,0.08)}
+.portfolio-nav{display:flex;justify-content:space-between;align-items:center;padding:24px 40px;border-bottom:1.5px solid var(--ink)}
+.portfolio-nav .pn-logo{font-family:var(--display);font-weight:800;font-size:24px;letter-spacing:-0.02em}
+.portfolio-nav .pn-logo .dot{color:var(--saffron)}
+.portfolio-nav .pn-links{display:flex;gap:32px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:0.08em}
+.portfolio-hero{padding:64px 40px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end;background:var(--cream-soft)}
+.portfolio-hero h1{font-family:var(--display);font-weight:800;font-size:108px;line-height:0.86;letter-spacing:-0.04em}
+.portfolio-hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--saffron)}
+.portfolio-hero .pf-side .pill-row{margin-bottom:20px}
+.portfolio-hero .pf-side p{font-size:15px;line-height:1.55;color:var(--ink-soft)}
+.portfolio-cases{padding:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.portfolio-case{aspect-ratio:4/3;padding:24px;border-radius:16px;display:grid;grid-template-rows:auto 1fr auto;border:1.5px solid var(--ink)}
+.portfolio-case.c1{background:var(--lime)}
+.portfolio-case.c2{background:var(--pink)}
+.portfolio-case.c3{background:var(--lavender)}
+.portfolio-case.c4{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.portfolio-case .pc-num{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase}
+.portfolio-case h3{font-family:var(--display);font-weight:700;font-size:28px;line-height:1.05;letter-spacing:-0.015em;align-self:end}
+.portfolio-case .pc-foot{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.06em}
+
+/* ---------- PAGE TOKENS ---------- */
+.tokens{background:var(--ink);color:var(--cream)}
+.tokens .page-meta{color:var(--cream);opacity:0.5}
+.tokens .section-title{border-color:var(--cream)}
+.tokens pre{
+  background:#000;border-radius:16px;padding:32px;
+  font-family:var(--mono);font-size:13px;line-height:1.7;
+  color:var(--cream);margin-top:48px;overflow-x:auto;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.tokens .pre-label{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;margin-top:32px;color:var(--lime)}
+.tokens-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+
+/* arrow svg helper */
+.arrow-icon{width:18px;height:18px;display:inline-block}
+
+/* For PDF print */
+@media print{
+  .page{margin:0;border:none}
+  body{background:white}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== PAGE 01 — COVER ============================== -->
+<section class="page cover">
+  <div class="meta">
+    <span>Brand System · v1.0</span>
+    <span>Daniella Bastos · 2026</span>
+  </div>
+  <div class="lime-dot"></div>
+  <h1>identi-<br>dade <em>visual.</em></h1>
+  <div class="tag-row">
+    <span class="tag">Portfólio UX/UI</span>
+    <span class="tag outline">Editorial</span>
+    <span class="tag lime">Vibrante</span>
+    <span class="tag outline">Tipografia como protagonista</span>
+  </div>
+  <div class="footer-info">
+    <div>
+      <div style="opacity:0.6">Sistema</div>
+      <div style="margin-top:6px;font-weight:700">Cores · Tipografia · Componentes</div>
+    </div>
+    <div>
+      <div style="opacity:0.6">Aplicação</div>
+      <div style="margin-top:6px;font-weight:700">Cases · LinkedIn · Site</div>
+    </div>
+    <div>
+      <div style="opacity:0.6">Data</div>
+      <div style="margin-top:6px;font-weight:700">Maio · 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 02 — ESSENCE ============================== -->
+<section class="page essence">
+  <div class="page-meta">
+    <span>02 · Essência</span>
+    <span>Filosofia de design</span>
+  </div>
+  <div class="label">Posicionamento</div>
+  <h2 class="quote">Editorial. <em>Tipografia</em> como protagonista. Cor como pontuação.</h2>
+  <div class="principles">
+    <div class="principle">
+      <div class="num">01</div>
+      <h3>Tipografia gigante</h3>
+      <p>Pesos altos (700–800) e tamanhos generosos. A palavra é a imagem.</p>
+    </div>
+    <div class="principle">
+      <div class="num">02</div>
+      <h3>Assimetria intencional</h3>
+      <p>Quebra de grid, blocos coloridos, sobreposições. Nada centralizado por padrão.</p>
+    </div>
+    <div class="principle">
+      <div class="num">03</div>
+      <h3>Cor pontual</h3>
+      <p>Lime neon, rosa, lavanda. Aparecem em flashes — nunca em massa contínua.</p>
+    </div>
+    <div class="principle">
+      <div class="num">04</div>
+      <h3>Pills e arcos</h3>
+      <p>Cantos arredondados nas tags e botões. Tudo o mais é reto e firme.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 03 — WORDMARK ============================== -->
+<section class="page wordmark">
+  <div class="page-meta">
+    <span>03 · Wordmark</span>
+    <span>Marca pessoal</span>
+  </div>
+  <div class="lockup">
+    <div class="mark-lg">db<span class="dot">.</span></div>
+    <div class="mark-info">
+      <h2>Daniella Bastos.</h2>
+      <p>Monograma "db." em Bricolage Grotesque 800. O ponto saffron é a assinatura — sempre presente, em qualquer aplicação. Pode aparecer só como "db." em ícones e favicons, ou como "Daniella Bastos." em assinaturas e capa.</p>
+      <div style="margin-top:32px;display:flex;gap:8px;flex-wrap:wrap">
+        <span class="pill pill-outline">Display: Bricolage 800</span>
+        <span class="pill pill-outline">Letter-spacing: -6%</span>
+        <span class="pill pill-outline">Ponto: #FF6B35</span>
+      </div>
+    </div>
+  </div>
+  <div class="variations">
+    <div class="var">db<span class="dot">.</span></div>
+    <div class="var dark">db<span class="dot">.</span></div>
+    <div class="var lime">db<span class="dot">.</span></div>
+  </div>
+  <div class="page-foot">
+    <span>Variações cromáticas</span>
+    <span>Light / Dark / Accent</span>
+  </div>
+</section>
+
+<!-- ============================== PAGE 04 — PALETTE LIGHT ============================== -->
+<section class="page palette">
+  <div class="page-meta">
+    <span>04 · Cor — Modo Claro</span>
+    <span>Light Mode</span>
+  </div>
+  <div class="section-title">
+    <h2>Paleta<br>cromática.</h2>
+    <span class="lbl">Modo claro · 7 cores</span>
+  </div>
+  <div class="swatch-grid">
+    <div class="swatch s-cream"><div class="color"><span class="role">Base</span></div><div class="info"><div class="name">Cream</div><div class="hex">#F5F0E8</div><div class="use">Fundo principal. 60% das telas. Tom papel acolhedor.</div></div></div>
+    <div class="swatch s-ink on-dark"><div class="color"><span class="role">Texto</span></div><div class="info"><div class="name">Ink</div><div class="hex">#0E0E0E</div><div class="use">Tipografia, contornos, contraste máximo. 25% das telas.</div></div></div>
+    <div class="swatch s-lime"><div class="color"><span class="role">Acento primário</span></div><div class="info"><div class="name">Lime</div><div class="hex">#DDFF45</div><div class="use">Destaques, CTAs, pontos de atenção. 8% das telas.</div></div></div>
+    <div class="swatch s-saffron"><div class="color"><span class="role">Assinatura</span></div><div class="info"><div class="name">Saffron</div><div class="hex">#FF6B35</div><div class="use">O ponto da marca. Detalhes mínimos. 2% das telas.</div></div></div>
+    <div class="swatch s-pink"><div class="color"><span class="role">Secundária</span></div><div class="info"><div class="name">Pink</div><div class="hex">#FFB8D9</div><div class="use">Cards e blocos secundários. Variação de tom.</div></div></div>
+    <div class="swatch s-lavender"><div class="color"><span class="role">Secundária</span></div><div class="info"><div class="name">Lavender</div><div class="hex">#B5A3F0</div><div class="use">Cards alternativos. Categorização visual.</div></div></div>
+    <div class="swatch s-paper"><div class="color"><span class="role">Neutro</span></div><div class="info"><div class="name">Paper</div><div class="hex">#FFFFFF</div><div class="use">Fundo de cards e mockups. Contraste com Cream.</div></div></div>
+  </div>
+
+  <div class="usage-label">Distribuição recomendada</div>
+  <div class="usage-bar">
+    <div class="u-cream">CREAM 60%</div>
+    <div class="u-ink">INK 25%</div>
+    <div class="u-lime">LIME 8%</div>
+    <div class="u-pink">PINK 4%</div>
+    <div class="u-lavender">LAV 3%</div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 05 — PALETTE DARK ============================== -->
+<section class="page palette-dark">
+  <div class="page-meta">
+    <span>05 · Cor — Modo Escuro</span>
+    <span>Dark Mode</span>
+  </div>
+  <div class="section-title">
+    <h2>Paleta<br>cromática.</h2>
+    <span class="lbl">Modo escuro · 7 cores</span>
+  </div>
+  <div class="swatch-grid">
+    <div class="swatch s-ink-d on-dark"><div class="color"><span class="role">Base</span></div><div class="info"><div class="name">Pitch</div><div class="hex">#000000</div><div class="use">Fundo principal modo dark. Profundidade máxima. 60%.</div></div></div>
+    <div class="swatch s-soft-d on-dark"><div class="color"><span class="role">Superfície</span></div><div class="info"><div class="name">Ink Soft</div><div class="hex">#1A1A1A</div><div class="use">Cards, módulos elevados. Cria hierarquia. 20%.</div></div></div>
+    <div class="swatch s-cream-d"><div class="color"><span class="role">Texto</span></div><div class="info"><div class="name">Cream</div><div class="hex">#F5F0E8</div><div class="use">Tipografia principal. Contraste alto sobre Pitch.</div></div></div>
+    <div class="swatch s-lime-d"><div class="color"><span class="role">Acento primário</span></div><div class="info"><div class="name">Lime</div><div class="hex">#DDFF45</div><div class="use">No dark, brilha mais. CTAs e destaques. 8%.</div></div></div>
+    <div class="swatch s-pink-d"><div class="color"><span class="role">Secundária</span></div><div class="info"><div class="name">Pink</div><div class="hex">#FFB8D9</div><div class="use">Cards secundários. Suaviza o preto.</div></div></div>
+    <div class="swatch s-lavender-d"><div class="color"><span class="role">Secundária</span></div><div class="info"><div class="name">Lavender</div><div class="hex">#B5A3F0</div><div class="use">Cards e tags categóricas.</div></div></div>
+    <div class="swatch s-saffron-d"><div class="color"><span class="role">Assinatura</span></div><div class="info"><div class="name">Saffron</div><div class="hex">#FF6B35</div><div class="use">Mantém função de assinatura. Detalhes mínimos.</div></div></div>
+  </div>
+  <div class="usage-label" style="color:rgba(245,240,232,0.6)">Inverte hierarquia: Pitch domina, Cream substitui Ink no texto, Lime ganha presença.</div>
+</section>
+
+<!-- ============================== PAGE 06 — PALETTE WIREFRAME ============================== -->
+<section class="page palette-wf">
+  <div class="page-meta">
+    <span>06 · Cor — Wireframe</span>
+    <span>Modo Sketch</span>
+  </div>
+  <div class="section-title">
+    <h2>Paleta<br>wireframe.</h2>
+    <span class="lbl">Sketch mode · 4 tons</span>
+  </div>
+  <div class="swatch-grid">
+    <div class="swatch s-wf1"><div class="color"><span class="role">Background</span></div><div class="info"><div class="name">Paper</div><div class="hex">#FFFFFF</div><div class="use">Fundo limpo durante wireframing. 70%.</div></div></div>
+    <div class="swatch s-wf2"><div class="color"><span class="role">Placeholder</span></div><div class="info"><div class="name">Stone</div><div class="hex">#E8E6E0</div><div class="use">Áreas de imagem, blocos genéricos. 20%.</div></div></div>
+    <div class="swatch s-wf3"><div class="color"><span class="role">Mid</span></div><div class="info"><div class="name">Ash</div><div class="hex">#B5B2AA</div><div class="use">Texto secundário, separadores. 6%.</div></div></div>
+    <div class="swatch s-wf4 on-dark"><div class="color"><span class="role">Linhas</span></div><div class="info"><div class="name">Outline</div><div class="hex">#1A1A1A</div><div class="use">Contornos, tipografia, bordas. 4%.</div></div></div>
+  </div>
+  <div style="margin-top:48px;padding:32px;border:1.5px dashed var(--wf-line);border-radius:0;background:var(--paper)">
+    <div style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Regra para wireframes</div>
+    <div style="font-family:var(--display);font-weight:700;font-size:28px;line-height:1.2;letter-spacing:-0.015em">Sem cores. Sem ornamentos. Tudo em outline ou fill cinza. Foco em estrutura, hierarquia e fluxo.</div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 07 — TYPOGRAPHY ============================== -->
+<section class="page typo">
+  <div class="page-meta">
+    <span>07 · Tipografia</span>
+    <span>Sistema tipográfico</span>
+  </div>
+  <div class="section-title">
+    <h2>Tipo-<br>grafia.</h2>
+    <span class="lbl">4 famílias</span>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-head">
+      <div class="name">Bricolage Grotesque</div>
+      <div class="meta">Display · 400/500/700/800 · Google Fonts</div>
+    </div>
+    <div class="preview-display">Aa<em>Bb</em>Cc</div>
+    <div class="scale">
+      <div class="scale-row"><div class="scale-name">Display 1</div><div class="scale-sample" style="font-size:96px;font-weight:800;line-height:0.9">Tipografia gigante.</div><div class="scale-meta">96/86 · -4%</div></div>
+      <div class="scale-row"><div class="scale-name">Display 2</div><div class="scale-sample" style="font-size:64px;font-weight:800;line-height:0.95">Hierarquia clara.</div><div class="scale-meta">64/60 · -3%</div></div>
+      <div class="scale-row"><div class="scale-name">Heading 1</div><div class="scale-sample" style="font-size:40px;font-weight:700">Seções principais.</div><div class="scale-meta">40/44 · -2%</div></div>
+      <div class="scale-row"><div class="scale-name">Heading 2</div><div class="scale-sample" style="font-size:24px;font-weight:700">Subseções.</div><div class="scale-meta">24/30 · -1%</div></div>
+    </div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-head">
+      <div class="name">Instrument Serif</div>
+      <div class="meta">Serif accent · 400 italic · Google Fonts</div>
+    </div>
+    <div class="preview-serif"><em>palavras com peso emocional.</em></div>
+    <div style="font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-top:16px;max-width:800px">Usar apenas em itálico, em palavras-chave dentro de frases display. Adiciona ritmo editorial. Nunca em corpo de texto.</div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-head">
+      <div class="name">DM Sans</div>
+      <div class="meta">Body · 400/500/700 · Google Fonts</div>
+    </div>
+    <div class="preview-body">Texto de leitura confortável, neutro o bastante para deixar o display brilhar. Usado em parágrafos, descrições, microcopy. Pode ir até 14px sem perder legibilidade.</div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-head">
+      <div class="name">JetBrains Mono</div>
+      <div class="meta">Mono · 400/500/700 · Google Fonts</div>
+    </div>
+    <div class="preview-mono">labels · meta · números · 01/04 · #DDFF45</div>
+    <div style="font-family:var(--body);font-size:14px;color:var(--ink-soft);margin-top:16px;max-width:800px">Para metadados, números técnicos, hex codes, labels em maiúsculas. Cria contraste estrutural com o display.</div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 08 — COMPONENTS ============================== -->
+<section class="page components">
+  <div class="page-meta">
+    <span>08 · Componentes</span>
+    <span>UI Kit base</span>
+  </div>
+  <div class="section-title">
+    <h2>Compo-<br>nentes.</h2>
+    <span class="lbl">Buttons · Pills · Cards · Numbers</span>
+  </div>
+
+  <div class="comp-grid">
+    <div class="comp-card">
+      <h3>Botões</h3>
+      <p class="desc">Pill format (border-radius full). Padding 14px/28px. Body font medium 15px.</p>
+      <div class="btn-row">
+        <button class="btn btn-primary">Ver case →</button>
+        <button class="btn btn-secondary">Ver case →</button>
+        <button class="btn btn-ghost">Ver case →</button>
+        <button class="btn btn-icon">→</button>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <h3>Pills / Tags</h3>
+      <p class="desc">Mono font 11px uppercase. Para categorias, status, metadados.</p>
+      <div class="pill-row">
+        <span class="pill pill-ink">UX Research</span>
+        <span class="pill pill-lime">Case study</span>
+        <span class="pill pill-pink">UI Design</span>
+        <span class="pill pill-lavender">Figma</span>
+        <span class="pill pill-outline">2026</span>
+      </div>
+      <div class="pill-row" style="margin-top:14px">
+        <span class="pill pill-outline">Heurística</span>
+        <span class="pill pill-outline">Wireframe</span>
+        <span class="pill pill-outline">Prototype</span>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <h3>Cards de case</h3>
+      <p class="desc">Border 1.5px ink, radius 16px. Numeração mono no topo. Display 22px no título.</p>
+      <div class="cards-row">
+        <div class="mini-card lime">
+          <div class="num-sm">01 / Case</div>
+          <h4>Suporte vira UX</h4>
+          <div class="arrow">→</div>
+        </div>
+        <div class="mini-card pink">
+          <div class="num-sm">02 / Case</div>
+          <h4>Análise heurística</h4>
+          <div class="arrow">→</div>
+        </div>
+        <div class="mini-card dark">
+          <div class="num-sm">03 / Case</div>
+          <h4>Redesign de fluxo</h4>
+          <div class="arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <h3>Números & destaques</h3>
+      <p class="desc">Display 800 em escala monumental. Use para stats, numeração de seções, datas grandes.</p>
+      <div class="num-row" style="margin-top:24px">
+        <div>
+          <div class="num-label">Cases</div>
+          <div class="num">04</div>
+        </div>
+        <div>
+          <div class="num-label">Anos</div>
+          <div class="num lime">8+</div>
+        </div>
+        <div>
+          <div class="num-label">Atendimentos</div>
+          <div class="num pink">10k</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card" style="grid-column:span 2">
+      <h3>Setas e indicadores</h3>
+      <p class="desc">Pills com setas como links. Variações fill, outline, accent.</p>
+      <div class="arrows-row">
+        <span class="arrow-pill fill">Próximo case →</span>
+        <span class="arrow-pill">← Voltar</span>
+        <span class="arrow-pill lime">Ver no Figma ↗</span>
+        <span class="arrow-pill" style="border-style:dashed">Em breve</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 09 — APP: CASE COVER (3 versões) ============================== -->
+<section class="page app">
+  <div class="page-meta">
+    <span>09 · Aplicação</span>
+    <span>Capa de case · 3 modos</span>
+  </div>
+  <div class="section-title">
+    <h2>Capa<br>de case.</h2>
+    <span class="lbl">Light / Dark / Wireframe</span>
+  </div>
+
+  <!-- Light -->
+  <div class="app-mock">
+    <div class="case-cover">
+      <div class="lime-blob"></div>
+      <div class="case-meta">
+        <span>Case 01 / 04</span>
+        <span>2026 · UX Research</span>
+      </div>
+      <h1>Quando o suporte<br>vira <em>pesquisa</em>.</h1>
+      <div class="case-foot">
+        <div class="case-tags pill-row">
+          <span class="pill pill-ink">UX Research</span>
+          <span class="pill pill-outline">Affinity Diagram</span>
+          <span class="pill pill-outline">Personas</span>
+        </div>
+        <span class="pill pill-lime">Ler case →</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px">
+    <!-- Dark -->
+    <div class="app-mock">
+      <div class="case-cover dark">
+        <div class="case-meta">
+          <span>Case 02 / 04</span>
+          <span>2026 · Heuristic</span>
+        </div>
+        <h1>10 falhas<br>de <em>usabilidade.</em></h1>
+        <div class="case-foot">
+          <div class="case-tags pill-row">
+            <span class="pill pill-lime">Nielsen</span>
+            <span class="pill" style="background:rgba(255,255,255,0.1);color:var(--cream);border:1px solid rgba(255,255,255,0.3)">Severity</span>
+          </div>
+          <span class="pill pill-lime">→</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wireframe -->
+    <div class="app-mock">
+      <div class="case-cover wf">
+        <div class="lime-blob"></div>
+        <div class="case-meta">
+          <span>Case 03 / 04</span>
+          <span>2026 · Redesign</span>
+        </div>
+        <h1>Refazendo um<br>fluxo <em>quebrado.</em></h1>
+        <div class="case-foot">
+          <div class="case-tags pill-row">
+            <span class="pill pill-ink">Wireframe</span>
+            <span class="pill pill-outline">User flow</span>
+          </div>
+          <span class="pill pill-lime">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 10 — APP: LINKEDIN SLIDES ============================== -->
+<section class="page app">
+  <div class="page-meta">
+    <span>10 · Aplicação</span>
+    <span>Carrossel LinkedIn · 1080x1350</span>
+  </div>
+  <div class="section-title">
+    <h2>Slides<br>LinkedIn.</h2>
+    <span class="lbl">6 templates · cor rotativa</span>
+  </div>
+
+  <div class="li-slides">
+    <div class="li-slide cream">
+      <div class="li-num">01 / 06</div>
+      <h3>Suporte é pesquisa <em>qualitativa</em>.</h3>
+      <div class="li-foot"><span>db.</span><span>Swipe →</span></div>
+    </div>
+    <div class="li-slide lime">
+      <div class="li-num">02 / 06</div>
+      <h3>O que <em>aprendi</em> em 8 anos.</h3>
+      <div class="li-foot"><span>db.</span><span>Swipe →</span></div>
+    </div>
+    <div class="li-slide dark">
+      <div class="li-num">03 / 06</div>
+      <h3>Padrão #1: <em>onboarding</em>.</h3>
+      <div class="li-foot"><span>db.</span><span>Swipe →</span></div>
+    </div>
+    <div class="li-slide pink">
+      <div class="li-num">04 / 06</div>
+      <h3>Padrão #2: <em>mensagens</em>.</h3>
+      <div class="li-foot"><span>db.</span><span>Swipe →</span></div>
+    </div>
+    <div class="li-slide lavender">
+      <div class="li-num">05 / 06</div>
+      <h3>Padrão #3: <em>navegação</em>.</h3>
+      <div class="li-foot"><span>db.</span><span>Swipe →</span></div>
+    </div>
+    <div class="li-slide cream" style="border:1.5px solid var(--ink)">
+      <div class="li-num">06 / 06</div>
+      <h3>Comente: o que <em>você</em> nota?</h3>
+      <div class="li-foot"><span>db.</span><span>Curtir ✶</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 11 — APP: PORTFOLIO PAGE ============================== -->
+<section class="page app">
+  <div class="page-meta">
+    <span>11 · Aplicação</span>
+    <span>Home do portfólio</span>
+  </div>
+  <div class="section-title">
+    <h2>Site<br>portfolio.</h2>
+    <span class="lbl">Hero + grid de cases</span>
+  </div>
+
+  <div class="portfolio">
+    <div class="portfolio-nav">
+      <div class="pn-logo">db<span class="dot">.</span></div>
+      <div class="pn-links">
+        <span>Sobre</span>
+        <span>Cases</span>
+        <span>Contato</span>
+      </div>
+      <span class="pill pill-ink">Disponível →</span>
+    </div>
+    <div class="portfolio-hero">
+      <h1>Designer<br><em>em transição</em>,<br>com 8 anos<br>de escuta.</h1>
+      <div class="pf-side">
+        <div class="pill-row">
+          <span class="pill pill-lime">UX/UI Design</span>
+          <span class="pill pill-outline">Customer Experience</span>
+        </div>
+        <p>Analista de Suporte SaaS estudando UX/UI Design na EBAC. Trago 8 anos de pesquisa qualitativa disfarçada de atendimento. Cada bug, cada dúvida, cada padrão — vira insight de produto.</p>
+      </div>
+    </div>
+    <div class="portfolio-cases">
+      <div class="portfolio-case c1">
+        <div class="pc-num">01 / Case</div>
+        <h3>Quando o suporte<br>vira pesquisa.</h3>
+        <div class="pc-foot"><span>UX Research</span><span>→</span></div>
+      </div>
+      <div class="portfolio-case c2">
+        <div class="pc-num">02 / Case</div>
+        <h3>10 falhas de<br>usabilidade.</h3>
+        <div class="pc-foot"><span>Heuristic</span><span>→</span></div>
+      </div>
+      <div class="portfolio-case c3">
+        <div class="pc-num">03 / Case</div>
+        <h3>Refazendo um<br>fluxo quebrado.</h3>
+        <div class="pc-foot"><span>Redesign</span><span>→</span></div>
+      </div>
+      <div class="portfolio-case c4">
+        <div class="pc-num">04 / Case</div>
+        <h3>Mini design<br>system.</h3>
+        <div class="pc-foot"><span>UI System</span><span>→</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PAGE 12 — TOKENS ============================== -->
+<section class="page tokens">
+  <div class="page-meta">
+    <span>12 · Design Tokens</span>
+    <span>CSS / JSON</span>
+  </div>
+  <div class="section-title">
+    <h2>Tokens.</h2>
+    <span class="lbl">Para o Claude Design ler</span>
+  </div>
+
+  <div class="tokens-grid">
+    <div>
+      <div class="pre-label">— CSS Variables</div>
+      <pre>:root {
+  /* CORES — LIGHT */
+  --color-base-cream:    #F5F0E8;
+  --color-base-paper:    #FFFFFF;
+  --color-text-ink:      #0E0E0E;
+  --color-text-muted:    #1A1A1A;
+
+  /* CORES — ACCENT */
+  --color-accent-lime:     #DDFF45;
+  --color-accent-saffron:  #FF6B35;
+  --color-accent-pink:     #FFB8D9;
+  --color-accent-lavender: #B5A3F0;
+
+  /* CORES — DARK */
+  --color-dark-pitch:    #000000;
+  --color-dark-surface:  #1A1A1A;
+
+  /* CORES — WIREFRAME */
+  --color-wf-paper:  #FFFFFF;
+  --color-wf-stone:  #E8E6E0;
+  --color-wf-ash:    #B5B2AA;
+  --color-wf-line:   #1A1A1A;
+
+  /* TIPOGRAFIA */
+  --font-display: 'Bricolage Grotesque';
+  --font-serif:   'Instrument Serif';
+  --font-body:    'DM Sans';
+  --font-mono:    'JetBrains Mono';
+
+  /* RAIO */
+  --radius-pill: 9999px;
+  --radius-card: 16px;
+  --radius-block: 24px;
+}</pre>
+    </div>
+
+    <div>
+      <div class="pre-label">— Princípios de uso</div>
+      <pre>// VOZ DE DESIGN
+"Editorial. Tipografia como
+ protagonista. Cor como pontuação."
+
+// REGRAS
+1. Cream = 60% das telas.
+2. Ink (texto) = 25% das telas.
+3. Acentos somados = no máx 15%.
+4. Saffron só no ponto da marca
+   e em micro-detalhes.
+
+// TIPOGRAFIA
+- Display: pesos 700-800,
+  letter-spacing -2% a -4%
+- Serif italic: APENAS em palavras
+  pontuais dentro de display.
+  Nunca em corpo.
+- Body: 14-16px, weight 400.
+- Mono: 11-13px, uppercase,
+  letter-spacing +6%.
+
+// COMPONENTES
+- Bordas: pill (9999px) ou
+  card (16px). Nada com 4-8px.
+- Botões SEMPRE pill.
+- Cards SEMPRE 16px ou 24px.
+- Border-width: 1.5px (não 1, não 2).
+
+// LAYOUT
+- Assimetria > simetria.
+- Quebra de grid intencional.
+- Negative space generoso.
+- Numeração visível (01/04).</pre>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

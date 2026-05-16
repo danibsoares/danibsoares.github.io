@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="pt-BR" data-db-mode="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniella Bastos — Designer UX/UI em transição. 8 anos de pesquisa qualitativa disfarçada de atendimento.">
+  <title>Daniella Bastos - Designer UX/UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SITE NAV — sticky, Light / Dark toggle, hamburger
+       ════════════════════════════════════════════════════════════ -->
+  <header class="db-nav" id="site-nav">
+
+    <button class="db-nav__wordmark-btn" data-nav="home" aria-label="Ir para início">
+      <span class="db-wordmark">db<span class="db-wordmark__dot">.</span></span>
+    </button>
+
+    <nav class="db-nav__links" aria-label="Navegação principal">
+      <a class="db-nav__link db-nav__link--active" data-nav="home">Início</a>
+      <a class="db-nav__link" data-nav="projetos">Projetos</a>
+      <a class="db-nav__link" data-nav="sobre">Sobre</a>
+      <a class="db-nav__link" data-nav="contato">Contato</a>
+    </nav>
+
+    <div class="db-nav__actions">
+      <!-- <span class="db-pill db-pill--ink db-nav__avail">Disponível →</span> -->
+      <button class="db-theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+        <span class="db-theme-toggle__label" id="theme-label">Light</span>
+      </button>
+      <button class="db-nav__hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="18" height="14" viewBox="0 0 18 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M2 2h14M2 7h14M2 12h14"/>
+        </svg>
+      </button>
+    </div>
+
+  </header>
+
+  <!-- ════════════════════════════════════════════════════════════
+       MOBILE MENU — full-screen overlay
+       ════════════════════════════════════════════════════════════ -->
+  <div class="db-mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+
+    <div class="db-mobile-menu__header">
+      <span class="db-wordmark">db<span class="db-wordmark__dot">.</span></span>
+      <button class="db-mobile-menu__close" id="mobile-close-btn" aria-label="Fechar menu">×</button>
+    </div>
+
+    <p class="db-mono db-mono--wide db-mobile-menu__eyebrow">menu · 04 / 04</p>
+
+    <nav class="db-mobile-menu__nav" aria-label="Menu móvel">
+      <a class="db-mobile-menu__link" data-nav="home" role="menuitem">
+        <span class="db-mobile-menu__num db-mono">01</span>
+        <span class="db-mobile-menu__label">início.</span>
+        <span class="db-mobile-menu__arrow">→</span>
+      </a>
+      <a class="db-mobile-menu__link" data-nav="projetos" role="menuitem">
+        <span class="db-mobile-menu__num db-mono">02</span>
+        <span class="db-mobile-menu__label">projetos.</span>
+        <span class="db-mobile-menu__arrow">→</span>
+      </a>
+      <a class="db-mobile-menu__link" data-nav="sobre" role="menuitem">
+        <span class="db-mobile-menu__num db-mono">03</span>
+        <span class="db-mobile-menu__label">sobre.</span>
+        <span class="db-mobile-menu__arrow">→</span>
+      </a>
+      <a class="db-mobile-menu__link" data-nav="contato" role="menuitem">
+        <span class="db-mobile-menu__num db-mono">04</span>
+        <span class="db-mobile-menu__label">contato.</span>
+        <span class="db-mobile-menu__arrow">→</span>
+      </a>
+    </nav>
+
+    <div class="db-mobile-menu__footer">
+      <div class="db-mobile-menu__pills">
+        <!-- <span class="db-pill db-pill--lime">Disponível →</span> -->
+        <span class="db-pill db-pill--outline">2026</span>
+      </div>
+      <div class="db-mobile-menu__socials">
+        <a href="https://linkedin.com/in/daniella-bastos" target="_blank" rel="noopener" class="db-mono">LinkedIn ↗</a>
+        <a href="https://behance.net/daniella-bastos" target="_blank" rel="noopener" class="db-mono">Behance ↗</a>
+        <a href="mailto:danibastossoares@gmail.com" class="db-mono">Email ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       MAIN CONTENT — all pages, shown/hidden by JS
+       ════════════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- ── 01 HOME ─────────────────────────────────────────────── -->
+    <section id="page-home" class="db-page db-page--active">
+
+      <!-- Hero -->
+      <div class="db-section db-section--hero db-grid-asym">
+        <div class="db-blob" aria-hidden="true"></div>
+        <h1 class="db-hero">
+          designer<br>
+          <em class="db-italic">em transição</em>
+        </h1>
+        <div class="db-hero-aside">
+          <div class="db-hero-pills">
+            <span class="db-pill db-pill--lime">UX/UI Design</span>
+            <span class="db-pill db-pill--outline">Customer Experience</span>
+          </div>
+          <p class="db-body">
+            Analista de Suporte SaaS estudando UX/UI Design na EBAC. Trago 8 anos de pesquisa qualitativa disfarçada de atendimento. Cada bug, cada dúvida, cada padrão — vira insight de produto.
+          </p>
+          <div class="db-hero-actions">
+            <button class="db-btn db-btn--primary" data-nav="projetos">Ver cases →</button>
+            <button class="db-btn db-btn--ghost" data-nav="sobre">Sobre mim</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Numbers strip -->
+      <section class="db-numbers-strip" aria-label="Números">
+        <div class="db-numbers-strip__inner">
+          <div class="db-numbers-strip__item">
+            <span class="db-mono">Cases</span>
+            <span class="db-numbers-strip__value">06</span>
+          </div>
+          <div class="db-numbers-strip__item">
+            <span class="db-mono">Anos escutando</span>
+            <span class="db-numbers-strip__value db-numbers-strip__value--highlight">8+</span>
+          </div>
+          <!-- <div class="db-numbers-strip__item">
+            <span class="db-mono">Atendimentos</span>
+            <span class="db-numbers-strip__value db-numbers-strip__value--pink">10k</span>
+          </div> -->
+          <!-- <div class="db-numbers-strip__item">
+            <span class="db-mono">Padrões mapeados</span>
+            <span class="db-numbers-strip__value db-numbers-strip__value--lavender">12</span>
+          </div> -->
+        </div>
+      </section>
+
+      <!-- Cases carousel — cards injected by JS -->
+      <section class="db-cases-section" aria-label="Cases">
+        <div class="db-cases-section__header">
+          <h2 class="db-hero--md">cases</h2>
+          <span class="db-mono">06 projetos</span>
+        </div>
+        <div class="db-carousel" id="home-carousel" role="list" aria-label="Carrossel de cases"></div>
+        <div class="db-carousel-footer">
+          <button class="db-pill db-pill--outline" data-nav="projetos">Ver todos →</button>
+        </div>
+      </section>
+      </div>
+
+
+      <!-- Sobre teaser -->
+      <div class="db-section db-section--elevated db-sobre-teaser db-grid-asym--rev">
+        <div>
+            <!-- remover e ver pelo que substituir -->
+          <!-- <span class="db-pill db-pill--dashed">SOBRE</span> -->
+        </div>
+        <div class="db-sobre-teaser__content">
+          <h2 class="db-hero--md">
+            8 anos de <em class="db-italic">escuta</em>.
+          </h2>
+          <p class="db-body">
+            Cada ticket que abri, cada dúvida que respondi, cada padrão que mapeei — virou matéria-prima de design. Hoje traduzo essa escuta em pesquisa, fluxos e systems.
+          </p>
+          <button class="db-btn db-btn--ghost" data-nav="sobre">Conhecer melhor →</button>
+        </div>
+      </div>
+
+      <!-- CTA Contato -->
+      <section class="db-cta-section" aria-label="Contato">
+        <!-- <span class="db-pill db-pill--lime">Disponível →</span> -->
+        <h2 class="db-hero">
+          vamos <em class="db-italic">conversar </em>?
+        </h2>
+        <button class="db-btn db-btn--primary" data-nav="contato">Iniciar conversa →</button>
+      </section>
+
+      <!-- Footer injected by JS -->
+      <div data-component="footer"></div>
+
+    </section>
+
+    <!-- ── 02 PROJETOS ──────────────────────────────────────────── -->
+    <section id="page-projetos" class="db-page" hidden>
+
+      <!-- Hero -->
+      <div class="db-section db-section--hero db-grid-asym">
+        <h1 class="db-hero">
+          <em class="db-italic">06</em> projetos<br>
+        </h1>
+        <div class="db-projetos-aside">
+          <p class="db-body">
+            Pesquisa qualitativa, redesigns, mini-systems. Conheça o pensamento por trás — não só a tela final.
+          </p>
+          <div class="db-filter-pills" id="filter-pills" role="group" aria-label="Filtrar por tipo">
+            <button class="db-pill db-pill--ink" data-filter="Todos">Todos</button>
+            <button class="db-pill db-pill--outline" data-filter="UX Research">UX Research</button>
+            <button class="db-pill db-pill--outline" data-filter="Redesign">Redesign</button>
+            <button class="db-pill db-pill--outline" data-filter="UI System">UI System</button>
+            <button class="db-pill db-pill--outline" data-filter="Content Design">Content Design</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main carousel — cards injected by JS -->
+      <div class="db-section--carousel">
+        <div class="db-carousel-controls">
+          <span class="db-mono" id="projetos-carousel-counter" aria-live="polite">01 / 06</span>
+          <div class="db-carousel-controls__btns">
+            <button class="db-btn db-btn--ghost db-btn--icon" id="projetos-prev" aria-label="Case anterior">←</button>
+            <button class="db-btn db-btn--primary db-btn--icon" id="projetos-next" aria-label="Próximo case">→</button>
+          </div>
+        </div>
+        <div class="db-carousel db-carousel--lg" id="projetos-carousel" role="list" aria-label="Carrossel de cases"></div>
+      </div>
+
+      <!-- Archive — items injected by JS -->
+      <!-- <div class="db-section db-section--elevated db-archive">
+        <div class="db-archive__header">
+          <h2 class="db-hero--md">arquivo.</h2>
+          <span class="db-mono">trabalhos anteriores · 2022 → 2024</span>
+        </div>
+        <div id="archive-list" role="list"></div>
+      </div> -->
+
+      <!-- Footer injected by JS -->
+      <div data-component="footer"></div>
+
+    </section>
+
+    <!-- ── 03 DETALHE — fully injected by JS ───────────────────── -->
+    <section id="page-detalhe" class="db-page" hidden aria-label="Detalhe do case">
+    </section>
+
+    <!-- ── 04 SOBRE ─────────────────────────────────────────────── -->
+    <section id="page-sobre" class="db-page" hidden>
+
+      <!-- Hero -->
+      <div class="db-section db-section--hero db-grid-asym">
+        <h1 class="db-hero">
+          olá, sou<br>
+          <em class="db-italic">Daniella</em>.
+        </h1>
+        <p class="db-body db-sobre-bio">
+          Há 8 anos atendo, escuto, traduzo dor de usuário em ticket. Agora estou aprendendo a traduzir essa escuta em design — formal, ferramental, mensurável.
+        </p>
+      </div>
+
+      <!-- Estudo / Trabalho cards -->
+      <div class="db-sobre-cards">
+        <div class="db-card-duo">
+          <div class="db-card-info db-card-info--light">
+            <span class="db-mono">Estudo</span>
+            <h2 class="db-h3">EBAC · UX/UI Design</h2>
+            <p class="db-body--sm">Curso completo. Foco em pesquisa, sistemas de design, prototipação avançada em Figma.</p>
+          </div>
+          <div class="db-card-info db-card-info--dark">
+            <span class="db-mono">Trabalho</span>
+            <h2 class="db-h3">Analista de Suporte SaaS</h2>
+            <p class="db-card-info__body">8 anos. 10k+ atendimentos. Treinamento de novos analistas. Documentação de fluxos.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ferramentas -->
+      <div class="db-section db-section--elevated db-tools">
+        <span class="db-mono">Ferramentas &amp; métodos</span>
+        <h2 class="db-h2">o que uso.</h2>
+        <div class="db-tools__pills" aria-label="Ferramentas">
+          <span class="db-pill db-pill--lime">Figma</span>
+          <span class="db-pill db-pill--outline">FigJam</span>
+          <span class="db-pill db-pill--outline">Notion</span>
+          <span class="db-pill db-pill--outline">User Interviews</span>
+          <span class="db-pill db-pill--lime">Affinity Diagram</span>
+          <span class="db-pill db-pill--outline">Heuristic Eval</span>
+          <span class="db-pill db-pill--outline">Wireframing</span>
+          <span class="db-pill db-pill--outline">Prototype</span>
+          <span class="db-pill db-pill--outline">Design System</span>
+          <span class="db-pill db-pill--outline">Customer Journey</span>
+          <span class="db-pill db-pill--outline">Jobs to be Done</span>
+          <span class="db-pill db-pill--outline">Content Design</span>
+        </div>
+        <div class="db-tools__actions">
+          <button class="db-btn db-btn--secondary">Baixar CV (PDF) ↓</button>
+          <button class="db-btn db-btn--ghost" data-nav="contato">Email →</button>
+        </div>
+      </div>
+
+      <!-- Footer injected by JS -->
+      <div data-component="footer"></div>
+
+    </section>
+
+    <!-- ── 05 CONTATO ───────────────────────────────────────────── -->
+    <section id="page-contato" class="db-page" hidden>
+
+      <!-- Hero -->
+      <div class="db-contato-hero">
+        <div class="db-contato-hero__pills">
+          <span class="db-pill db-pill--lime">Disponível →</span>
+          <span class="db-pill db-pill--outline">Aceitando freelas · 2026</span>
+        </div>
+        <h1 class="db-hero">
+          vamos<br>
+          <em class="db-italic">conversar </em>?
+        </h1>
+        <p class="db-body">
+          Aberta a colaborações em UX research, redesign de fluxos e construção de mini-systems. Respondo em até 48h.
+        </p>
+      </div>
+
+      <!-- Form + direct contact -->
+      <div class="db-contato-body db-grid-asym">
+
+        <!-- Form -->
+        <div class="db-contato-form">
+          <h2 class="db-h3">conta um pouco do projeto.</h2>
+          <form class="db-form" novalidate>
+            <div class="db-field">
+              <label class="db-mono" for="f-nome">Nome</label>
+              <input class="db-field__input" id="f-nome" type="text" placeholder="Como te chamar?" autocomplete="name">
+            </div>
+            <div class="db-field">
+              <label class="db-mono" for="f-email">Email</label>
+              <input class="db-field__input" id="f-email" type="email" placeholder="voce@email.com" autocomplete="email">
+            </div>
+            <div class="db-field">
+              <label class="db-mono" for="f-empresa">Empresa (opcional)</label>
+              <input class="db-field__input" id="f-empresa" type="text" placeholder="Onde você trabalha" autocomplete="organization">
+            </div>
+            <div class="db-field">
+              <span class="db-mono" id="type-label">Tipo de projeto</span>
+              <div class="db-type-pills" role="group" aria-labelledby="type-label">
+                <button type="button" class="db-pill db-pill--ink db-type-pill" data-type="UX Research">UX Research</button>
+                <button type="button" class="db-pill db-pill--outline db-type-pill" data-type="Redesign">Redesign</button>
+                <button type="button" class="db-pill db-pill--outline db-type-pill" data-type="Design System">Design System</button>
+                <button type="button" class="db-pill db-pill--outline db-type-pill" data-type="Content">Content</button>
+                <button type="button" class="db-pill db-pill--outline db-type-pill" data-type="Outro">Outro</button>
+              </div>
+            </div>
+            <div class="db-field">
+              <label class="db-mono" for="f-mensagem">Mensagem</label>
+              <textarea class="db-field__input db-field__input--textarea" id="f-mensagem" placeholder="Sobre o que você quer falar? Prazo, orçamento, contexto..."></textarea>
+            </div>
+            <div>
+              <button class="db-btn db-btn--primary" type="submit">Enviar mensagem →</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Direct contact -->
+        <div class="db-contato-direct">
+          <div class="db-direct-card">
+            <span class="db-mono">Email</span>
+            <a class="db-direct-card__link" href="mailto:danibastossoares@gmail.com">danibastossoares@gmail.com ↗</a>
+          </div>
+          <div class="db-direct-card">
+            <span class="db-mono">LinkedIn</span>
+            <a class="db-direct-card__link" href="https://linkedin.com/in/daniellabsoares" target="_blank" rel="noopener">/in/daniellabsoares ↗</a>
+          </div>
+          <div class="db-direct-card">
+            <span class="db-mono">Behance</span>
+            <a class="db-direct-card__link" href="https://behance.net/daniellabastos" target="_blank" rel="noopener">/daniellabastos ↗</a>
+          </div>
+          <div class="db-direct-card db-direct-card--status">
+            <span class="db-mono db-mono--muted">Status</span>
+            <p>Aceitando novos projetos a partir de <strong class="db-status__highlight">2026</strong>. Respondo em até 48h.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer injected by JS -->
+      <div data-component="footer"></div>
+
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
