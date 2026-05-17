@@ -1312,6 +1312,7 @@ dark fill cards: italic highlight should be lime
   letter-spacing: -0.04em;
   color: var(--db-fg-1);
   margin: 0;
+  padding-bottom: 40px;
   align-self: end;
 }
 
@@ -2083,6 +2084,7 @@ dark fill cards: italic highlight should be lime
     font-size: 2.5rem !important; /* Aumentamos para dar mais presença */
     line-height: 1 !important;
     width: 100% !important;
+    padding-bottom: 10px !important;
   }
 
   /* 4. Cabeçalho e Rodapé: Garante que toquem as bordas do padding do pai */
