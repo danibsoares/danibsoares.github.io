@@ -951,6 +951,8 @@ button.db-pill {
 /* Sobre teaser */
 .db-sobre-teaser {
   align-items: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .db-sobre-teaser .db-hero--md {
