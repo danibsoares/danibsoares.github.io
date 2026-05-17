@@ -8,267 +8,25 @@
    1. CASE DATA
    ---------------------------------------------------------------- */
 
-const DB_CASES = [
-  {
-    id: 'support',
-    num: '01',
-    color: 'lime',
-    year: '2026',
-    kind: 'UX Research',
-    tag: 'UX Research',
-    title: 'quando o suporte vira pesquisa.',
-    highlight: 'pesquisa',
-    tags: ['Affinity Diagram', 'Personas', 'Jobs to be Done'],
-    coverMode: 'light',
-    meta: {
-      contexto: 'SaaS B2B · 8 anos de tickets',
-      papel: 'Pesquisa, síntese, apresentação',
-      periodo: '2026 · 6 semanas',
-    },
-    problema: {
-      heading: 'o <em>problema</em> não era o produto.',
-      highlightWord: 'problema',
-      body: [
-        'Cada ticket que abria era um sintoma. Atrás dele havia um padrão — e atrás do padrão, uma decisão de design tomada sem dados qualitativos.',
-        'Esse case é sobre transformar 8 anos de escuta em um documento que produto e engenharia leem antes de iterar. Resultado: 3 padrões repetidos × 4 anos, mapeados em affinity diagram e apresentados em 18 slides.',
-      ],
-    },
-    processo: {
-      heading: 'do ticket ao <em>insight</em>.',
-      highlightWord: 'insight',
-      steps: [
-        { num: '01', title: 'Coleta', body: '1.200 tickets exportados, anonimizados e categorizados por área de produto.' },
-        { num: '02', title: 'Síntese', body: 'Affinity diagram em FigJam — 12 temas emergiram naturalmente.' },
-        { num: '03', title: 'Insight', body: '3 padrões repetidos ao longo de 4 anos, em fluxos diferentes.' },
-        { num: '04', title: 'Apresentação', body: '18 slides para produto e engenharia, antes de qualquer mudança.' },
-      ],
-    },
-    stats: [
-      { label: 'Tickets analisados', value: '1.2k', mod: 'highlight' },
-      { label: 'Padrões repetidos', value: '03', mod: 'pink' },
-      { label: 'Anos de dados', value: '4', mod: 'lavender' },
-      { label: 'Slides finais', value: '18', mod: '' },
-    ],
-    stack: ['Affinity Diagram', 'Personas', 'Jobs to be Done', 'Figma', 'FigJam', 'Notion'],
-  },
-  {
-    id: 'heuristic',
-    num: '02',
-    color: 'pink',
-    year: '2026',
-    kind: 'Heuristic',
-    tag: 'Heuristic',
-    title: '10 falhas de usabilidade.',
-    highlight: 'usabilidade',
-    tags: ['Nielsen 10', 'Severity', 'Auditoria'],
-    coverMode: 'dark',
-    meta: {
-      contexto: 'App móvel de serviços',
-      papel: 'Auditoria heurística, relatório',
-      periodo: '2026 · 3 semanas',
-    },
-    problema: {
-      heading: 'o <em>produto</em> não era o problema.',
-      highlightWord: 'produto',
-      body: [
-        'Dez heurísticas de Nielsen aplicadas a um app com quase zero feedback de usuário. Cada falha encontrada representava um ponto de abandono silencioso.',
-        'O relatório final priorizou 10 violações por severidade e incluiu propostas de correção para as 3 mais críticas.',
-      ],
-    },
-    processo: {
-      heading: 'da <em>auditoria</em> ao relatório.',
-      highlightWord: 'auditoria',
-      steps: [
-        { num: '01', title: 'Mapeamento', body: 'Listagem de todos os fluxos do app por ordem de criticalidade.' },
-        { num: '02', title: 'Auditoria', body: 'Aplicação das 10 heurísticas com registro de evidências e screenshots.' },
-        { num: '03', title: 'Severidade', body: 'Classificação 0–4 de cada violação com impacto e frequência.' },
-        { num: '04', title: 'Proposta', body: 'Mockups corretivos para as 3 violações mais graves.' },
-      ],
-    },
-    stats: [
-      { label: 'Heurísticas avaliadas', value: '10', mod: 'highlight' },
-      { label: 'Violações encontradas', value: '27', mod: 'pink' },
-      { label: 'Críticas (sev. 4)', value: '03', mod: 'lavender' },
-      { label: 'Mockups entregues', value: '03', mod: '' },
-    ],
-    stack: ['Nielsen 10', 'Severity', 'Auditoria', 'Figma', 'Notion'],
-  },
-  {
-    id: 'redesign',
-    num: '03',
-    color: 'lavender',
-    year: '2026',
-    kind: 'Redesign',
-    tag: 'Redesign',
-    title: 'refazendo um fluxo quebrado.',
-    highlight: 'quebrado',
-    tags: ['Wireframe', 'User flow', 'Protótipo'],
-    coverMode: 'wireframe',
-    meta: {
-      contexto: 'Plataforma de gestão interna',
-      papel: 'UX Design, prototipação',
-      periodo: '2026 · 4 semanas',
-    },
-    problema: {
-      heading: 'o fluxo estava <em>quebrado</em>.',
-      highlightWord: 'quebrado',
-      body: [
-        'Um fluxo de aprovação com 7 telas desnecessárias e confirmações redundantes. Os usuários abandonavam no passo 3 de 7 — sem feedback de erro.',
-        'O redesign reduziu o fluxo para 3 telas, eliminou fricção e tornou o feedback imediato. Taxa de conclusão: +64%.',
-      ],
-    },
-    processo: {
-      heading: 'do <em>wireframe</em> ao protótipo.',
-      highlightWord: 'wireframe',
-      steps: [
-        { num: '01', title: 'Discovery', body: 'Entrevistas com 5 usuários para mapear pontos de atrito no fluxo atual.' },
-        { num: '02', title: 'Wireframe', body: 'Rabisco → wireframe low-fi → validação com usuário em 2 dias.' },
-        { num: '03', title: 'Protótipo', body: 'Hi-fi interativo em Figma com micro-interações de feedback.' },
-        { num: '04', title: 'Teste', body: 'Teste de usabilidade com 4 participantes. Iteração final.' },
-      ],
-    },
-    stats: [
-      { label: 'Telas antes', value: '07', mod: 'highlight' },
-      { label: 'Telas depois', value: '03', mod: 'pink' },
-      { label: 'Usuários testados', value: '04', mod: 'lavender' },
-      { label: 'Conclusão +', value: '64%', mod: '' },
-    ],
-    stack: ['Wireframe', 'User flow', 'Protótipo', 'Figma', 'FigJam', 'Maze'],
-  },
-  {
-    id: 'system',
-    num: '04',
-    color: 'dark',
-    year: '2025',
-    kind: 'UI System',
-    tag: 'UI System',
-    title: 'mini design system.',
-    highlight: 'system',
-    tags: ['Tokens', 'Componentes', 'Figma'],
-    coverMode: 'light',
-    meta: {
-      contexto: 'Startup de fintech',
-      papel: 'UI Design, documentação',
-      periodo: '2025 · 8 semanas',
-    },
-    problema: {
-      heading: 'sem <em>sistema</em>, sem consistência.',
-      highlightWord: 'sistema',
-      body: [
-        'Seis telas com quatro variações de botão, três tamanhos de fonte sem padrão e nenhuma cor documentada. Cada componente novo era um improviso.',
-        'O mini design system entregou: tokens de cor e tipo, 12 componentes documentados, guia de uso e biblioteca Figma publicada.',
-      ],
-    },
-    processo: {
-      heading: 'do <em>caos</em> ao componente.',
-      highlightWord: 'caos',
-      steps: [
-        { num: '01', title: 'Inventário', body: 'Auditoria de todas as telas existentes. 47 variações inconsistentes encontradas.' },
-        { num: '02', title: 'Tokens', body: 'Definição de 28 tokens de cor, 6 de tipografia e 4 de espaçamento.' },
-        { num: '03', title: 'Componentes', body: '12 componentes base construídos com auto-layout e variantes.' },
-        { num: '04', title: 'Documentação', body: 'Guia de uso com exemplos de certo/errado. Handoff completo.' },
-      ],
-    },
-    stats: [
-      { label: 'Componentes', value: '12', mod: 'highlight' },
-      { label: 'Tokens definidos', value: '38', mod: 'pink' },
-      { label: 'Telas revisadas', value: '06', mod: 'lavender' },
-      { label: 'Semanas', value: '08', mod: '' },
-    ],
-    stack: ['Tokens', 'Componentes', 'Figma', 'FigJam', 'Notion'],
-  },
-  {
-    id: 'onboard',
-    num: '05',
-    color: 'lime',
-    year: '2025',
-    kind: 'UX Research',
-    tag: 'UX Research',
-    title: 'onboarding que aprendi a escutar.',
-    highlight: 'escutar',
-    tags: ['User Interview', 'Journey'],
-    coverMode: 'light',
-    meta: {
-      contexto: 'SaaS de RH · onboarding de novos clientes',
-      papel: 'Pesquisa qualitativa, síntese',
-      periodo: '2025 · 5 semanas',
-    },
-    problema: {
-      heading: 'ninguém chegava ao <em>aha</em>.',
-      highlightWord: 'aha',
-      body: [
-        'Taxa de ativação abaixo de 30%. Clientes pagavam mas nunca chegavam a usar o produto de verdade. O time achava que era problema de produto — era problema de onboarding.',
-        'Seis entrevistas com clientes ativos e inativos revelaram o padrão: as instruções estavam certas para quem fez o produto, erradas para quem ia usá-lo.',
-      ],
-    },
-    processo: {
-      heading: 'de entrevista ao <em>mapa</em>.',
-      highlightWord: 'mapa',
-      steps: [
-        { num: '01', title: 'Recrutamento', body: 'Seis participantes: 3 ativos (chegaram ao aha), 3 inativos (desistiram).' },
-        { num: '02', title: 'Entrevistas', body: 'Entrevistas semiestruturadas de 40 min. Gravadas, transcritas, codificadas.' },
-        { num: '03', title: 'Síntese', body: 'Journey map comparativo: ativo vs. inativo. 4 pontos de quebra identificados.' },
-        { num: '04', title: 'Recomendações', body: '3 mudanças imediatas no fluxo de onboarding. Implementadas em 1 sprint.' },
-      ],
-    },
-    stats: [
-      { label: 'Entrevistas', value: '06', mod: 'highlight' },
-      { label: 'Pontos de quebra', value: '04', mod: 'pink' },
-      { label: 'Mudanças propostas', value: '03', mod: 'lavender' },
-      { label: 'Implementadas', value: '03', mod: '' },
-    ],
-    stack: ['User Interview', 'Journey', 'Figma', 'FigJam', 'Notion', 'Otter.ai'],
-  },
-  {
-    id: 'voice',
-    num: '06',
-    color: 'pink',
-    year: '2025',
-    kind: 'Content Design',
-    tag: 'Content Design',
-    title: 'a voz que estava no ticket.',
-    highlight: 'voz',
-    tags: ['Tone of voice', 'UX Writing'],
-    coverMode: 'light',
-    meta: {
-      contexto: 'Plataforma B2B · notificações e erros',
-      papel: 'Content design, guia de voz',
-      periodo: '2025 · 4 semanas',
-    },
-    problema: {
-      heading: 'a <em>voz</em> estava quebrada.',
-      highlightWord: 'voz',
-      body: [
-        'Mensagens de erro genéricas, notificações confusas, tom inconsistente entre telas. Os tickets de suporte estavam cheios de dúvidas que as próprias telas deveriam responder.',
-        'Um guia de tom de voz com 40 exemplos de antes/depois. Taxa de tickets sobre "o que fazer" caiu 22% no mês seguinte.',
-      ],
-    },
-    processo: {
-      heading: 'do ticket ao <em>guia</em>.',
-      highlightWord: 'guia',
-      steps: [
-        { num: '01', title: 'Inventário', body: 'Catalogação de todas as mensagens do sistema. 83 textos únicos.' },
-        { num: '02', title: 'Análise', body: 'Identificação de padrões de falha: genérico, culpabilizante, técnico demais.' },
-        { num: '03', title: 'Princípios', body: '4 princípios de voz definidos com exemplos aplicados.' },
-        { num: '04', title: 'Guia', body: 'Documento com 40 pares antes/depois. Adotado pelo time de produto.' },
-      ],
-    },
-    stats: [
-      { label: 'Textos revisados', value: '83', mod: 'highlight' },
-      { label: 'Pares antes/depois', value: '40', mod: 'pink' },
-      { label: 'Princípios de voz', value: '04', mod: 'lavender' },
-      { label: 'Tickets reduzidos', value: '22%', mod: '' },
-    ],
-    stack: ['Tone of voice', 'UX Writing', 'Notion', 'Figma'],
-  },
-];
+const CASE_COLORS = ['lime', 'pink', 'lavender', 'dark'];
+
+const DB_CASES = (window.DB_CASES_RAW || []).map(function(c, i) {
+  c.num   = String(i + 1).padStart(2, '0');
+  c.color = CASE_COLORS[i % CASE_COLORS.length];
+  return c;
+});
+
+function totalCases() { return String(DB_CASES.length).padStart(2, '0'); }
 
 const DB_ARCHIVE = [
-  { num: '07', title: 'voicebot que <em>ouvia</em> em vez de responder.', highlightWord: 'ouvia', year: '2024', kind: 'UX Research' },
-  { num: '08', title: 'do FAQ ao <em>fluxo</em> conversacional.', highlightWord: 'fluxo', year: '2024', kind: 'Content' },
-  { num: '09', title: 'um portal interno que <em>ninguém</em> abria.', highlightWord: 'ninguém', year: '2023', kind: 'Redesign' },
-  { num: '10', title: 'biblioteca de respostas, mas para <em>humanos</em>.', highlightWord: 'humanos', year: '2023', kind: 'Content' },
-];
+  { title: 'voicebot que <em>ouvia</em> em vez de responder.', highlightWord: 'ouvia', year: '2024', kind: 'UX Research' },
+  { title: 'do FAQ ao <em>fluxo</em> conversacional.', highlightWord: 'fluxo', year: '2024', kind: 'Content' },
+  { title: 'um portal interno que <em>ninguém</em> abria.', highlightWord: 'ninguém', year: '2023', kind: 'Redesign' },
+  { title: 'biblioteca de respostas, mas para <em>humanos</em>.', highlightWord: 'humanos', year: '2023', kind: 'Content' },
+].map(function(a, i) {
+  a.num = String(DB_CASES.length + i + 1).padStart(2, '0');
+  return a;
+});
 
 /* ----------------------------------------------------------------
    2. THEME
@@ -400,7 +158,7 @@ function buildFooter() {
         </div>
       </div>
       <div class="db-footer__bottom">
-        <span>© 2026 Daniella Bastos</span>
+        <span>© ${new Date().getFullYear()} Daniella Bastos</span>
       </div>
     </footer>
   `;
@@ -410,10 +168,10 @@ function buildCaseCard(c) {
   return `
     <article class="db-card db-card--${c.color}" data-case="${c.id}" role="button" tabindex="0"
       aria-label="Ver case ${c.num}: ${c.title}">
-      <div class="db-card__num db-mono">${escHtml(c.num)} / 06 · Case</div>
+      <div class="db-card__num db-mono">${escHtml(c.num)} / ${totalCases()} · Case</div>
       <h3 class="db-card__title">${italicTitle(c.title, c.highlight)}</h3>
       <div class="db-card__footer">
-        <span class="db-mono">${escHtml(c.tag)}</span>
+        <span class="db-mono">${escHtml(c.kind)}</span>
         <span class="db-card__arrow">→</span>
       </div>
     </article>
@@ -443,19 +201,26 @@ function buildNumbersStrip(items) {
    6. PAGE: HOME — populate carousels
    ---------------------------------------------------------------- */
 
+function buildCarouselHTML() {
+  return DB_CASES.map(function(c) {
+    return '<div class="db-carousel__item">' + buildCaseCard(c) + '</div>';
+  }).join('');
+}
+
 let homeCurrentIdx = 0;
 
 function initHome() {
   const carousel = document.getElementById('home-carousel');
   if (!carousel || carousel.dataset.init) return;
   carousel.dataset.init = '1';
-  carousel.innerHTML = DB_CASES.map(function(c) {
-    return '<div class="db-carousel__item">' + buildCaseCard(c) + '</div>';
-  }).join('');
+  carousel.innerHTML = buildCarouselHTML();
 
   // Inject footer
   const footerEl = carousel.closest('#page-home').querySelector('[data-component="footer"]');
   if (footerEl) footerEl.outerHTML = buildFooter();
+
+  const casesCountEl = document.getElementById('home-cases-count');
+  if (casesCountEl) casesCountEl.textContent = totalCases();
 
   bindCaseKeyboard('#page-home');
   updateHomeCounter();
@@ -495,9 +260,7 @@ function initProjetos() {
   // Carousel
   const carousel = document.getElementById('projetos-carousel');
   if (carousel) {
-    carousel.innerHTML = DB_CASES.map(function(c) {
-      return '<div class="db-carousel__item">' + buildCaseCard(c) + '</div>';
-    }).join('');
+    carousel.innerHTML = buildCarouselHTML();
   }
 
   // Archive
@@ -519,13 +282,16 @@ function initProjetos() {
   const footerEl = page.querySelector('[data-component="footer"]');
   if (footerEl) footerEl.outerHTML = buildFooter();
 
+  const heroCountEl = document.getElementById('projetos-hero-count');
+  if (heroCountEl) heroCountEl.textContent = totalCases();
+
   bindCaseKeyboard('#page-projetos');
   updateProjetosCounter();
 }
 
 function updateProjetosCounter() {
   const el = document.getElementById('projetos-carousel-counter');
-  if (el) el.textContent = String(projetosCurrentIdx + 1).padStart(2, '0') + ' / 06';
+  if (el) el.textContent = String(projetosCurrentIdx + 1).padStart(2, '0') + ' / ' + totalCases();
 }
 
 function scrollProjetosCarousel(dir) {
@@ -551,7 +317,7 @@ function renderDetalhe(caseId) {
   page.innerHTML = `
     <div class="db-detalhe-topbar">
       <button class="db-detalhe-topbar__back db-mono" data-nav="projetos">← Voltar para cases</button>
-      <span class="db-mono">case ${escHtml(c.num)} / 06</span>
+      <span class="db-mono">case ${escHtml(c.num)} / ${totalCases()}</span>
     </div>
 
     <div class="db-detalhe-cover-section">
@@ -559,7 +325,7 @@ function renderDetalhe(caseId) {
         <div class="db-cover__inner">
           <div class="db-cover__blob"></div>
           <div class="db-cover__header">
-            <span>Case ${escHtml(c.num)} / 06</span>
+            <span>Case ${escHtml(c.num)} / ${totalCases()}</span>
             <span>${escHtml(c.year)} · ${escHtml(c.kind)}</span>
           </div>
           <h1 class="db-cover__title">${italicTitle(c.title, c.highlight)}</h1>
@@ -597,7 +363,7 @@ function renderDetalhe(caseId) {
       <div class="db-problema__grid">
         <div class="db-mono">01 · O problema</div>
         <div>
-          <h2 class="db-h2">${italicTitle(c.problema.heading.replace(/<em>/g, '').replace(/<\/em>/g, ''), c.problema.highlightWord)}</h2>
+          <h2 class="db-h2">${italicTitle(c.problema.heading, c.problema.highlightWord)}</h2>
           ${c.problema.body.map(function(p) { return '<p class="db-body">' + escHtml(p) + '</p>'; }).join('')}
         </div>
       </div>
@@ -605,17 +371,21 @@ function renderDetalhe(caseId) {
 
     <div class="db-processo">
       <span class="db-mono">02 · Processo</span>
-      <h2 class="db-h2">${italicTitle(c.processo.heading.replace(/<em>/g, '').replace(/<\/em>/g, ''), c.processo.highlightWord)}</h2>
+      <h2 class="db-h2">${italicTitle(c.processo.heading, c.processo.highlightWord)}</h2>
       <div class="db-steps">
-        ${c.processo.steps.map(function(step) {
+        ${c.processo.steps.map(function(step, si) {
+          const sNum = String(si + 1).padStart(2, '0');
           return `
             <div class="db-step">
-              <div class="db-mono db-step__num">${escHtml(step.num)}</div>
-              <h3 class="db-h3">${escHtml(step.title)}</h3>
-              <div class="db-step__body">
+              <div class="db-mono db-step__num">${sNum}</div>
+              <div class="db-step__left">
+                <h3 class="db-h3">${escHtml(step.title)}</h3>
                 <p class="db-body">${escHtml(step.body)}</p>
+              </div>
+              <div class="db-step__right">
+                ${step.legenda ? `<p class="db-step__legenda db-mono db-mono--muted">${escHtml(step.legenda)}</p>` : ''}
                 <div class="db-step-artifact">
-                  <span class="db-mono db-mono--muted db-step-artifact__label">ETAPA ${escHtml(step.num)} · ARTEFATO</span>
+                  <span class="db-mono db-mono--muted db-step-artifact__label">ETAPA ${sNum} · ARTEFATO</span>
                 </div>
               </div>
             </div>
@@ -636,7 +406,7 @@ function renderDetalhe(caseId) {
 
     <div class="db-next-case db-section--elevated">
       <div class="db-next-case__header">
-        <span class="db-mono">próximo case · ${escHtml(next.num)} / 06</span>
+        <span class="db-mono">próximo case · ${escHtml(next.num)} / ${totalCases()}</span>
         <span class="db-mono">${escHtml(next.year)} · ${escHtml(next.kind)}</span>
       </div>
       <div class="db-next-case__title" data-case="${next.id}" role="link" tabindex="0">
@@ -657,23 +427,17 @@ function renderDetalhe(caseId) {
    9. PAGE: SOBRE + CONTATO — inject footer only
    ---------------------------------------------------------------- */
 
-function initSobre() {
-  const page = document.getElementById('page-sobre');
+function initStaticPage(id) {
+  const page = document.getElementById(id);
   if (!page || page.dataset.init) return;
   page.dataset.init = '1';
   const footerEl = page.querySelector('[data-component="footer"]');
   if (footerEl) footerEl.outerHTML = buildFooter();
-  bindCaseKeyboard('#page-sobre');
+  bindCaseKeyboard('#' + id);
 }
 
-function initContato() {
-  const page = document.getElementById('page-contato');
-  if (!page || page.dataset.init) return;
-  page.dataset.init = '1';
-  const footerEl = page.querySelector('[data-component="footer"]');
-  if (footerEl) footerEl.outerHTML = buildFooter();
-  bindCaseKeyboard('#page-contato');
-}
+function initSobre()   { initStaticPage('page-sobre'); }
+function initContato() { initStaticPage('page-contato'); }
 
 /* ----------------------------------------------------------------
    10. KEYBOARD NAV FOR [data-case] ELEMENTS
