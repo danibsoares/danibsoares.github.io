@@ -547,6 +547,7 @@ function renderDetalhe(caseId) {
   const idx = DB_CASES.indexOf(c);
   const next = DB_CASES[(idx + 1) % DB_CASES.length];
   const page = document.getElementById('page-detalhe');
+  const isSmallScreen = window.innerWidth < 500 ? 'db-cover--mobile' : '';
 
   page.innerHTML = `
     <div class="db-detalhe-topbar">
@@ -555,7 +556,7 @@ function renderDetalhe(caseId) {
     </div>
 
     <div class="db-detalhe-cover-section">
-      <div class="db-cover" data-cover-mode="${c.coverMode}">
+      <div class="db-cover ${isSmallScreen}" data-cover-mode="${c.coverMode}">
         <div class="db-cover__inner">
           <div class="db-cover__blob"></div>
           <div class="db-cover__header">
@@ -567,7 +568,6 @@ function renderDetalhe(caseId) {
             <div class="db-cover__tags">
               ${c.tags.map(function(t) { return '<span class="db-pill db-pill--outline">' + escHtml(t) + '</span>'; }).join('')}
             </div>
-            <span class="db-pill db-pill--lime">Ler case →</span>
           </div>
         </div>
       </div>

@@ -2052,4 +2052,43 @@ dark fill cards: italic highlight should be lime
   .db-card-info {
     padding: 28px;
   }
+
+  @media (max-width: 768px) {
+    .db-cover {
+    height: auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: flex-start !important;
+  }
+  /* 1. Remove qualquer limitação de largura que venha do desktop */
+  .db-cover__inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important; 
+    min-height: 370px !important; 
+  }
+.db-cover__header {
+    display: flex !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+    font-size: 10px !important; /* Fonte pequena para não quebrar */
+    margin-bottom: 10px !important;
+  }
+  /* 2. Aumentar a escala visual do título */
+  .db-cover__title {
+    font-size: 2.5rem !important; /* Aumentamos para dar mais presença */
+    line-height: 1 !important;
+    width: 100% !important;
+  }
+
+  /* 4. Cabeçalho e Rodapé: Garante que toquem as bordas do padding do pai */
+  .db-cover__header, 
+  .db-cover__footer {
+    width: 100% !important;
+  }
+}
 }
