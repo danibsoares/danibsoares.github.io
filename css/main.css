@@ -2088,9 +2088,22 @@ dark fill cards: italic highlight should be lime
   }
 
   /* 4. Cabeçalho e Rodapé: Garante que toquem as bordas do padding do pai */
-  .db-cover__header, 
+  .db-cover__header,
   .db-cover__footer {
     width: 100% !important;
+  }
+
+  /* 5. Reposiciona blob para não sobrepor o título (evita contraste ruim no dark cover) */
+  .db-cover__blob {
+    width: 100px !important;
+    height: 100px !important;
+    top: 16px !important;
+    right: 16px !important;
+  }
+
+  /* 6. Remove alinhamento à direita do título no mobile */
+  .db-cover__title {
+    align-self: auto !important;
   }
 }
 }
