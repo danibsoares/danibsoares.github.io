@@ -179,6 +179,25 @@ function buildCaseCard(c) {
   `;
 }
 
+function buildRelatedCases(c) {
+  const related = DB_CASES.filter(function(other) {
+    if (other.id === c.id) return false;
+    return (other.stack || []).some(function(s) { return (c.stack || []).includes(s); });
+  }).slice(0, 4);
+
+  if (!related.length) return '';
+
+  return `
+    <div class="db-related-cases db-section--elevated">
+      <span class="db-mono">Mais cases</span>
+      <h2 class="db-h2">você também pode gostar</h2>
+      <div class="db-related-cases__grid">
+        ${related.map(buildCaseCard).join('')}
+      </div>
+    </div>
+  `;
+}
+
 function buildNumbersStrip(items) {
   const mods = { highlight: 'db-numbers-strip__value--highlight', pink: 'db-numbers-strip__value--pink', lavender: 'db-numbers-strip__value--lavender' };
   return `
@@ -312,7 +331,6 @@ function initProjetos() {
 function renderDetalhe(caseId) {
   const c = DB_CASES.find(function(x) { return x.id === caseId; }) || DB_CASES[0];
   const idx = DB_CASES.indexOf(c);
-  const next = DB_CASES[(idx + 1) % DB_CASES.length];
   const page = document.getElementById('page-detalhe');
 
   const prevCase = idx > 0 ? DB_CASES[idx - 1] : null;
@@ -388,9 +406,16 @@ function renderDetalhe(caseId) {
               </div>
               <div class="db-step__right">
                 ${step.legenda ? `<p class="db-step__legenda db-mono db-mono--muted">${escHtml(step.legenda)}</p>` : ''}
-                <div class="db-step-artifact">
-                  <span class="db-mono db-mono--muted db-step-artifact__label">ETAPA ${sNum} · ARTEFATO</span>
-                </div>
+                ${step.artifact ? `
+                  <a class="db-step-artifact${step.artifact === 'placeholder' ? ' db-step-artifact--placeholder' : ''}"
+                     href="${escHtml(c.notionUrl || '#')}" target="_blank" rel="noopener"
+                     aria-label="Artefato: ${escHtml(step.title)} — Ver no Notion">
+                    ${step.artifact !== 'placeholder' ? `<img src="${escHtml(step.artifact)}" alt="Artefato: ${escHtml(step.title)}" loading="lazy">` : ''}
+                    <div class="db-step-artifact__hover">
+                      <span class="db-mono">Ver projeto completo ↗</span>
+                    </div>
+                  </a>
+                ` : ''}
               </div>
             </div>
           `;
@@ -408,18 +433,7 @@ function renderDetalhe(caseId) {
       </div>
     </div>
 
-    <div class="db-next-case db-section--elevated">
-      <div class="db-next-case__header">
-        <span class="db-mono">próximo case · ${escHtml(next.num)} / ${totalCases()}</span>
-        <span class="db-mono">${escHtml(next.year)} · ${escHtml(next.kind)}</span>
-      </div>
-      <div class="db-next-case__title" data-case="${next.id}" role="link" tabindex="0">
-        <h2 class="db-hero">${italicTitle(next.title, next.highlight)} <span class="db-next-arrow">→</span></h2>
-      </div>
-      <div class="db-next-case__card">
-        ${buildCaseCard(next)}
-      </div>
-    </div>
+    ${buildRelatedCases(c)}
 
     ${buildFooter()}
   `;

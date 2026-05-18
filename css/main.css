@@ -1596,17 +1596,73 @@ dark fill cards: italic highlight should be lime
 .db-step-artifact {
   width: 100%;
   aspect-ratio: 16 / 9;
-  background: var(--db-bg);
-  border: var(--db-border) solid var(--db-border-color);
   border-radius: var(--db-radius-card);
   position: relative;
-  transition: background var(--db-dur-normal) var(--db-ease);
+  overflow: hidden;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
-.db-step-artifact__label {
+.db-step-artifact img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.db-step-artifact--placeholder {
+  background: var(--db-bg);
+  border: var(--db-border) dashed var(--db-border-color);
+  transition: background var(--db-dur-normal) var(--db-ease),
+              border-color var(--db-dur-normal) var(--db-ease);
+}
+
+.db-step-artifact--placeholder::before {
+  content: '↑ imagem';
   position: absolute;
-  bottom: 16px;
-  left: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--db-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--db-fg-2);
+  opacity: 0.5;
+}
+
+.db-step-artifact__hover {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--db-highlight);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  transform: translateY(100%);
+  transition: transform 0.22s var(--db-ease);
+}
+
+.db-step-artifact:hover .db-step-artifact__hover,
+.db-step-artifact:focus-visible .db-step-artifact__hover {
+  transform: translateY(0);
+}
+
+@media (hover: none) {
+  .db-step-artifact__hover {
+    transform: translateY(0);
+  }
+}
+
+.db-step-artifact__hover .db-mono {
+  color: var(--db-ink);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 /* Stack section */
@@ -1633,31 +1689,26 @@ dark fill cards: italic highlight should be lime
 }
 
 /* Next case */
-.db-next-case {
+.db-related-cases {
   padding: 96px 48px;
   background: var(--db-bg-elevated);
   border-top: var(--db-border) solid var(--db-border-color);
   transition: background var(--db-dur-normal) var(--db-ease);
 }
 
-.db-next-case__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 32px;
+.db-related-cases > .db-mono {
+  display: block;
+  margin-bottom: 16px;
 }
 
-.db-next-case__title {
-  margin-bottom: 32px;
-  cursor: pointer;
+.db-related-cases .db-h2 {
+  margin-bottom: 40px;
 }
 
-.db-next-case__title .db-next-arrow {
-  color: var(--db-highlight);
-}
-
-.db-next-case__card {
-  max-width: 720px;
+.db-related-cases__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
 }
 
 /* ================================================================
@@ -2232,8 +2283,12 @@ dark fill cards: italic highlight should be lime
     padding: 48px 20px;
   }
 
-  .db-next-case {
+  .db-related-cases {
     padding: 64px 20px;
+  }
+
+  .db-related-cases__grid {
+    grid-template-columns: 1fr;
   }
 
   /* Sobre */

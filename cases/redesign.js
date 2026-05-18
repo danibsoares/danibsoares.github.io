@@ -3,6 +3,7 @@
   year: '2026',
   kind: 'Redesign',
   coverMode: 'wireframe',
+  notionUrl: '',
   title: 'refazendo um fluxo quebrado.',
   highlight: 'quebrado',
   tags: ['Wireframe', 'User flow', 'Protótipo'],
@@ -23,10 +24,10 @@
     heading: 'do wireframe ao protótipo.',
     highlightWord: 'wireframe',
     steps: [
-      { title: 'Discovery', body: 'Entrevistas com 5 usuários para mapear pontos de atrito no fluxo atual.', legenda: '' },
-      { title: 'Wireframe', body: 'Rabisco → wireframe low-fi → validação com usuário em 2 dias.', legenda: '' },
-      { title: 'Protótipo', body: 'Hi-fi interativo em Figma com micro-interações de feedback.', legenda: '' },
-      { title: 'Teste', body: 'Teste de usabilidade com 4 participantes. Iteração final.', legenda: '' },
+      { title: 'Discovery', body: 'Entrevistas com 5 usuários para mapear pontos de atrito no fluxo atual.', legenda: '', artifact: null },
+      { title: 'Wireframe', body: 'Rabisco → wireframe low-fi → validação com usuário em 2 dias.', legenda: '', artifact: 'placeholder' },
+      { title: 'Protótipo', body: 'Hi-fi interativo em Figma com micro-interações de feedback.', legenda: '', artifact: 'placeholder' },
+      { title: 'Teste', body: 'Teste de usabilidade com 4 participantes. Iteração final.', legenda: '', artifact: null },
     ],
   },
   stats: [

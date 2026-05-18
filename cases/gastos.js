@@ -3,6 +3,7 @@
   year: '2026',
   kind: 'UX Research',
   coverMode: 'dark',
+  notionUrl: '',
   title: 'quando o gráfico virou alívio.',
   highlight: 'alívio',
   tags: ['Data Viz', 'Psicologia Financeira', 'Usability Test'],
@@ -23,10 +24,10 @@
     heading: 'da culpa ao alívio.',
     highlightWord: 'alívio',
     steps: [
-      { title: 'Imersão', body: 'Benchmark de 6 apps financeiros + revisão de literatura em psicologia financeira e data viz.', legenda: '' },
-      { title: 'Pesquisa', body: 'Teste de preferência com 3 tipos de gráfico (barra, linha, rosca) com 8 participantes.', legenda: '' },
-      { title: 'Protótipo', body: 'Fluxo de inserção de gasto em 3 telas: valor → categoria sugerida → confirmação.', legenda: '' },
-      { title: 'Teste', body: '5 sessões de usabilidade. Métrica-alvo: inserção de gasto em até 3 segundos.', legenda: '' },
+      { title: 'Imersão', body: 'Benchmark de 6 apps financeiros + revisão de literatura em psicologia financeira e data viz.', legenda: '', artifact: null },
+      { title: 'Pesquisa', body: 'Teste de preferência com 3 tipos de gráfico (barra, linha, rosca) com 8 participantes.', legenda: '', artifact: 'placeholder' },
+      { title: 'Protótipo', body: 'Fluxo de inserção de gasto em 3 telas: valor → categoria sugerida → confirmação.', legenda: '', artifact: 'placeholder' },
+      { title: 'Teste', body: '5 sessões de usabilidade. Métrica-alvo: inserção de gasto em até 3 segundos.', legenda: '', artifact: null },
     ],
   },
   stats: [

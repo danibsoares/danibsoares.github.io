@@ -3,6 +3,7 @@
   year: '2025',
   kind: 'UI System',
   coverMode: 'light',
+  notionUrl: '',
   title: 'mini design system.',
   highlight: 'system',
   tags: ['Tokens', 'Componentes', 'Figma'],
@@ -23,10 +24,10 @@
     heading: 'do caos ao componente.',
     highlightWord: 'caos',
     steps: [
-      { title: 'Inventário', body: 'Auditoria de todas as telas existentes. 47 variações inconsistentes encontradas.', legenda: '' },
-      { title: 'Tokens', body: 'Definição de 28 tokens de cor, 6 de tipografia e 4 de espaçamento.', legenda: '' },
-      { title: 'Componentes', body: '12 componentes base construídos com auto-layout e variantes.', legenda: '' },
-      { title: 'Documentação', body: 'Guia de uso com exemplos de certo/errado. Handoff completo.', legenda: '' },
+      { title: 'Inventário', body: 'Auditoria de todas as telas existentes. 47 variações inconsistentes encontradas.', legenda: '', artifact: 'placeholder' },
+      { title: 'Tokens', body: 'Definição de 28 tokens de cor, 6 de tipografia e 4 de espaçamento.', legenda: '', artifact: 'placeholder' },
+      { title: 'Componentes', body: '12 componentes base construídos com auto-layout e variantes.', legenda: '', artifact: 'placeholder' },
+      { title: 'Documentação', body: 'Guia de uso com exemplos de certo/errado. Handoff completo.', legenda: '', artifact: null },
     ],
   },
   stats: [

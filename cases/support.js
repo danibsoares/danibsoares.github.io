@@ -3,6 +3,7 @@
   year: '2026',
   kind: 'UX Research',
   coverMode: 'light',
+  notionUrl: '',
   title: 'quando o suporte vira pesquisa.',
   highlight: 'pesquisa',
   tags: ['Affinity Diagram', 'Personas', 'Jobs to be Done'],
@@ -23,10 +24,10 @@
     heading: 'do ticket ao insight.',
     highlightWord: 'insight',
     steps: [
-      { title: 'Coleta', body: '1.200 tickets exportados, anonimizados e categorizados por área de produto.', legenda: 'teste teste teste' },
-      { title: 'Síntese', body: 'Affinity diagram em FigJam — 12 temas emergiram naturalmente.', legenda: '' },
-      { title: 'Insight', body: '3 padrões repetidos ao longo de 4 anos, em fluxos diferentes.', legenda: '' },
-      { title: 'Apresentação', body: '18 slides para produto e engenharia, antes de qualquer mudança.', legenda: '' },
+      { title: 'Coleta', body: '1.200 tickets exportados, anonimizados e categorizados por área de produto.', legenda: 'teste teste teste', artifact: 'placeholder' },
+      { title: 'Síntese', body: 'Affinity diagram em FigJam — 12 temas emergiram naturalmente.', legenda: '', artifact: 'placeholder' },
+      { title: 'Insight', body: '3 padrões repetidos ao longo de 4 anos, em fluxos diferentes.', legenda: '', artifact: null },
+      { title: 'Apresentação', body: '18 slides para produto e engenharia, antes de qualquer mudança.', legenda: '', artifact: 'placeholder' },
     ],
   },
   stats: [

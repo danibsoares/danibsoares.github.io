@@ -3,6 +3,7 @@
   year: '2026',
   kind: 'Heuristic',
   coverMode: 'dark',
+  notionUrl: '',
   title: '10 falhas de usabilidade.',
   highlight: 'usabilidade',
   tags: ['Nielsen 10', 'Severity', 'Auditoria'],
@@ -23,10 +24,10 @@
     heading: 'da auditoria ao relatório.',
     highlightWord: 'auditoria',
     steps: [
-      { title: 'Mapeamento', body: 'Listagem de todos os fluxos do app por ordem de criticalidade.', legenda: '' },
-      { title: 'Auditoria', body: 'Aplicação das 10 heurísticas com registro de evidências e screenshots.', legenda: '' },
-      { title: 'Severidade', body: 'Classificação 0–4 de cada violação com impacto e frequência.', legenda: '' },
-      { title: 'Proposta', body: 'Mockups corretivos para as 3 violações mais graves.', legenda: '' },
+      { title: 'Mapeamento', body: 'Listagem de todos os fluxos do app por ordem de criticalidade.', legenda: '', artifact: 'placeholder' },
+      { title: 'Auditoria', body: 'Aplicação das 10 heurísticas com registro de evidências e screenshots.', legenda: '', artifact: 'placeholder' },
+      { title: 'Severidade', body: 'Classificação 0–4 de cada violação com impacto e frequência.', legenda: '', artifact: null },
+      { title: 'Proposta', body: 'Mockups corretivos para as 3 violações mais graves.', legenda: '', artifact: 'placeholder' },
     ],
   },
   stats: [
