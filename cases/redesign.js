@@ -4,7 +4,7 @@
   kind: 'Redesign',
   coverMode: 'wireframe',
   notionUrl: '',
-  title: 'refazendo um fluxo quebrado.',
+  title: 'refazendo um fluxo quebrado',
   highlight: 'quebrado',
   tags: ['Wireframe', 'User flow', 'Protótipo'],
   meta: {
@@ -13,7 +13,7 @@
     periodo: '2026 · 4 semanas',
   },
   problema: {
-    heading: 'o fluxo estava quebrado.',
+    heading: 'o fluxo estava quebrado',
     highlightWord: 'quebrado',
     body: [
       'Um fluxo de aprovação com 7 telas desnecessárias e confirmações redundantes. Os usuários abandonavam no passo 3 de 7 — sem feedback de erro.',
@@ -21,7 +21,7 @@
     ],
   },
   processo: {
-    heading: 'do wireframe ao protótipo.',
+    heading: 'do wireframe ao protótipo',
     highlightWord: 'wireframe',
     steps: [
       { title: 'Discovery', body: 'Entrevistas com 5 usuários para mapear pontos de atrito no fluxo atual.', legenda: '', artifact: null },

@@ -4,7 +4,7 @@
   kind: 'UX Research',
   coverMode: 'light',
   notionUrl: '',
-  title: 'quando o suporte vira pesquisa.',
+  title: 'quando o suporte vira pesquisa',
   highlight: 'pesquisa',
   tags: ['Affinity Diagram', 'Personas', 'Jobs to be Done'],
   meta: {
@@ -13,7 +13,7 @@
     periodo: '2026 · 6 semanas',
   },
   problema: {
-    heading: 'o problema não era o produto.',
+    heading: 'o problema não era o produto',
     highlightWord: 'problema',
     body: [
       'Cada ticket que abria era um sintoma. Atrás dele havia um padrão — e atrás do padrão, uma decisão de design tomada sem dados qualitativos.',
@@ -21,7 +21,7 @@
     ],
   },
   processo: {
-    heading: 'do ticket ao insight.',
+    heading: 'do ticket ao insight',
     highlightWord: 'insight',
     steps: [
       { title: 'Coleta', body: '1.200 tickets exportados, anonimizados e categorizados por área de produto.', legenda: 'teste teste teste', artifact: 'placeholder' },

@@ -5,7 +5,8 @@
       "Bash(cat package.json)",
       "Bash(cat README.md)",
       "Bash(git config *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(grep -n \"\\\\.$\" cases/support.js cases/heuristic.js cases/redesign.js cases/system.js cases/gastos.js js/app.js)"
     ]
   }
 }

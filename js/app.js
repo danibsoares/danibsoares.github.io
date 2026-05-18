@@ -19,10 +19,10 @@ const DB_CASES = (window.DB_CASES_RAW || []).map(function(c, i) {
 function totalCases() { return String(DB_CASES.length).padStart(2, '0'); }
 
 const DB_ARCHIVE = [
-  { title: 'voicebot que <em>ouvia</em> em vez de responder.', highlightWord: 'ouvia', year: '2024', kind: 'UX Research' },
-  { title: 'do FAQ ao <em>fluxo</em> conversacional.', highlightWord: 'fluxo', year: '2024', kind: 'Content' },
-  { title: 'um portal interno que <em>ninguém</em> abria.', highlightWord: 'ninguém', year: '2023', kind: 'Redesign' },
-  { title: 'biblioteca de respostas, mas para <em>humanos</em>.', highlightWord: 'humanos', year: '2023', kind: 'Content' },
+  { title: 'voicebot que <em>ouvia</em> em vez de responder', highlightWord: 'ouvia', year: '2024', kind: 'UX Research' },
+  { title: 'do FAQ ao <em>fluxo</em> conversacional', highlightWord: 'fluxo', year: '2024', kind: 'Content' },
+  { title: 'um portal interno que <em>ninguém</em> abria', highlightWord: 'ninguém', year: '2023', kind: 'Redesign' },
+  { title: 'biblioteca de respostas, mas para <em>humanos</em>', highlightWord: 'humanos', year: '2023', kind: 'Content' },
 ].map(function(a, i) {
   a.num = String(DB_CASES.length + i + 1).padStart(2, '0');
   return a;
@@ -427,7 +427,7 @@ function renderDetalhe(caseId) {
 
     <div class="db-stack">
       <span class="db-mono">04 · Ferramentas</span>
-      <h2 class="db-h2">stack do case.</h2>
+      <h2 class="db-h2">stack do case</h2>
       <div class="db-stack__pills">
         ${c.stack.map(function(t) { return '<span class="db-pill db-pill--outline">' + escHtml(t) + '</span>'; }).join('')}
       </div>

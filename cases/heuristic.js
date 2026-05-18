@@ -4,7 +4,7 @@
   kind: 'Heuristic',
   coverMode: 'dark',
   notionUrl: '',
-  title: '10 falhas de usabilidade.',
+  title: '10 falhas de usabilidade',
   highlight: 'usabilidade',
   tags: ['Nielsen 10', 'Severity', 'Auditoria'],
   meta: {
@@ -13,7 +13,7 @@
     periodo: '2026 · 3 semanas',
   },
   problema: {
-    heading: 'o produto não era o problema.',
+    heading: 'o produto não era o problema',
     highlightWord: 'produto',
     body: [
       'Dez heurísticas de Nielsen aplicadas a um app com quase zero feedback de usuário. Cada falha encontrada representava um ponto de abandono silencioso.',
@@ -21,7 +21,7 @@
     ],
   },
   processo: {
-    heading: 'da auditoria ao relatório.',
+    heading: 'da auditoria ao relatório',
     highlightWord: 'auditoria',
     steps: [
       { title: 'Mapeamento', body: 'Listagem de todos os fluxos do app por ordem de criticalidade.', legenda: '', artifact: 'placeholder' },

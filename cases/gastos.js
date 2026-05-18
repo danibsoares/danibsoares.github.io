@@ -4,7 +4,7 @@
   kind: 'UX Research',
   coverMode: 'dark',
   notionUrl: '',
-  title: 'quando o gráfico virou alívio.',
+  title: 'quando o gráfico virou alívio',
   highlight: 'alívio',
   tags: ['Data Viz', 'Psicologia Financeira', 'Usability Test'],
   meta: {
@@ -13,7 +13,7 @@
     periodo: '2026 · 5 semanas',
   },
   problema: {
-    heading: 'o app sabia tudo, mas culpava.',
+    heading: 'o app sabia tudo, mas culpava',
     highlightWord: 'culpava',
     body: [
       'Apps financeiros exibem cada gasto como uma acusação. O vermelho que avança na tela, os percentuais que explodem o orçamento — a interface estava certa nos dados, errada no tom.',
@@ -21,7 +21,7 @@
     ],
   },
   processo: {
-    heading: 'da culpa ao alívio.',
+    heading: 'da culpa ao alívio',
     highlightWord: 'alívio',
     steps: [
       { title: 'Imersão', body: 'Benchmark de 6 apps financeiros + revisão de literatura em psicologia financeira e data viz.', legenda: '', artifact: null },

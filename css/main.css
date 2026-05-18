@@ -992,6 +992,7 @@ button.db-pill {
   scroll-snap-type: x mandatory;
   padding: 8px 24px;
   padding-left: 48px;
+  scroll-padding-left: 48px;
   scrollbar-width: none;
 }
 
@@ -2172,7 +2173,8 @@ dark fill cards: italic highlight should be lime
 
   /* Carousel */
   .db-carousel {
-    padding: 8px 48px 24px;
+    padding: 8px 48px 24px 20px;
+    scroll-padding-left: 20px;
   }
 
   .db-carousel__item {

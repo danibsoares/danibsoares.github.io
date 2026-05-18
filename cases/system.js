@@ -4,7 +4,7 @@
   kind: 'UI System',
   coverMode: 'light',
   notionUrl: '',
-  title: 'mini design system.',
+  title: 'mini design system',
   highlight: 'system',
   tags: ['Tokens', 'Componentes', 'Figma'],
   meta: {
@@ -13,7 +13,7 @@
     periodo: '2025 · 8 semanas',
   },
   problema: {
-    heading: 'sem sistema, sem consistência.',
+    heading: 'sem sistema, sem consistência',
     highlightWord: 'sistema',
     body: [
       'Seis telas com quatro variações de botão, três tamanhos de fonte sem padrão e nenhuma cor documentada. Cada componente novo era um improviso.',
@@ -21,7 +21,7 @@
     ],
   },
   processo: {
-    heading: 'do caos ao componente.',
+    heading: 'do caos ao componente',
     highlightWord: 'caos',
     steps: [
       { title: 'Inventário', body: 'Auditoria de todas as telas existentes. 47 variações inconsistentes encontradas.', legenda: '', artifact: 'placeholder' },
