@@ -1737,11 +1737,30 @@ dark fill cards: italic highlight should be lime
   margin-bottom: 32px;
 }
 
+.db-tools__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 64px;
+}
+
+.db-tools__group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.db-tools__group-label {
+  opacity: 0.45;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .db-tools__pills {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 64px;
 }
 
 .db-tools__actions {

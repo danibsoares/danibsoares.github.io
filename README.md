@@ -20,7 +20,7 @@ Site portfólio pessoal de Daniella Bastos, designer UX/UI em transição com 8 
 ├── css/
 │   └── main.css            # Estilos globais com variáveis de tema (light/dark)
 ├── js/
-│   └── app.js              # Navegação, renderização de cards, filtros, carrossel
+│   └── app.js              # Navegação, renderização de cards, filtros, stack filter
 ├── cases/
 │   ├── support.js          # Case: quando o suporte vira pesquisa (UX Research)
 │   ├── heuristic.js        # Case: avaliação heurística
