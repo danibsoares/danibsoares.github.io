@@ -212,26 +212,31 @@
           <p class="db-body">
             Pesquisa qualitativa, redesigns, mini-systems. Conheça o pensamento por trás — não só a tela final.
           </p>
-          <div class="db-filter-pills" id="filter-pills" role="group" aria-label="Filtrar por tipo">
-            <button class="db-pill db-pill--ink" data-filter="Todos">Todos</button>
-            <button class="db-pill db-pill--outline" data-filter="UX Research">UX Research</button>
-            <button class="db-pill db-pill--outline" data-filter="Redesign">Redesign</button>
-            <button class="db-pill db-pill--outline" data-filter="UI System">UI System</button>
-            <button class="db-pill db-pill--outline" data-filter="Content Design">Content Design</button>
+          <div class="db-filter-group">
+            <div class="db-filter-row">
+              <div class="db-filter-pills" id="filter-kind" role="group" aria-label="Filtrar por tipo">
+                <button class="db-pill db-pill--ink" data-filter-kind="Todos">Todos</button>
+                <button class="db-pill db-pill--outline" data-filter-kind="UX Research">UX Research</button>
+                <button class="db-pill db-pill--outline" data-filter-kind="Redesign">Redesign</button>
+                <button class="db-pill db-pill--outline" data-filter-kind="UI System">UI System</button>
+                <button class="db-pill db-pill--outline" data-filter-kind="Heuristic">Heuristic</button>
+              </div>
+              <button class="db-filter-stack-toggle db-mono" id="filter-stack-toggle" aria-expanded="false" aria-controls="filter-tools">
+                <span class="db-filter-stack-toggle__icon">⊕</span>
+                <span class="db-filter-stack-toggle__label">Stack</span>
+                <span class="db-filter-stack-toggle__count" id="filter-stack-count" hidden></span>
+              </button>
+            </div>
+            <div class="db-filter-pills db-filter-pills--tools" id="filter-tools" role="group" aria-label="Filtrar por ferramenta" hidden>
+              <!-- injected by JS -->
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Main carousel — cards injected by JS -->
-      <div class="db-section--carousel">
-        <div class="db-carousel-controls">
-          <span class="db-mono" id="projetos-carousel-counter" aria-live="polite">01 / 06</span>
-          <div class="db-carousel-controls__btns">
-            <button class="db-btn db-btn--ghost db-btn--icon" id="projetos-prev" aria-label="Case anterior">←</button>
-            <button class="db-btn db-btn--primary db-btn--icon" id="projetos-next" aria-label="Próximo case">→</button>
-          </div>
-        </div>
-        <div class="db-carousel db-carousel--lg" id="projetos-carousel" role="list" aria-label="Carrossel de cases"></div>
+      <!-- Main grid — cards injected by JS -->
+      <div class="db-section--grid">
+        <div class="db-projects-grid" id="projetos-grid" role="list" aria-label="Lista de cases"></div>
       </div>
 
       <!-- Archive — items injected by JS -->
@@ -403,6 +408,8 @@
     </section>
 
   </main>
+
+  <button id="back-to-top" class="db-back-to-top" aria-label="Voltar ao topo" hidden>↑</button>
 
   <script src="cases/support.js"></script>
   <script src="cases/heuristic.js"></script>

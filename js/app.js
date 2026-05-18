@@ -166,8 +166,9 @@ function buildFooter() {
 
 function buildCaseCard(c) {
   return `
-    <article class="db-card db-card--${c.color}" data-case="${c.id}" role="button" tabindex="0"
-      aria-label="Ver case ${c.num}: ${c.title}">
+    <article class="db-card db-card--${c.color}" data-case="${c.id}"
+      data-kind="${escHtml(c.kind)}" data-stack="${escHtml((c.stack || []).join(','))}"
+      role="button" tabindex="0" aria-label="Ver case ${c.num}: ${c.title}">
       <div class="db-card__num db-mono">${escHtml(c.num)} / ${totalCases()} · Case</div>
       <h3 class="db-card__title">${italicTitle(c.title, c.highlight)}</h3>
       <div class="db-card__footer">
@@ -247,21 +248,37 @@ function scrollHomeCarousel(dir) {
 }
 
 /* ----------------------------------------------------------------
-   7. PAGE: PROJETOS — carousel + filters + archive
+   7. PAGE: PROJETOS — grid + filters + archive
    ---------------------------------------------------------------- */
-
-let projetosCurrentIdx = 0;
 
 function initProjetos() {
   const page = document.getElementById('page-projetos');
   if (!page || page.dataset.init) return;
   page.dataset.init = '1';
 
-  // Carousel
-  const carousel = document.getElementById('projetos-carousel');
-  if (carousel) {
-    carousel.innerHTML = buildCarouselHTML();
+  // Grid
+  const grid = document.getElementById('projetos-grid');
+  if (grid) {
+    grid.innerHTML = DB_CASES.map(function(c) { return buildCaseCard(c); }).join('');
   }
+
+  // Tool filter pills — generated from all case stacks
+  const toolsContainer = document.getElementById('filter-tools');
+  if (toolsContainer) {
+    const allTools = [];
+    DB_CASES.forEach(function(c) {
+      (c.stack || []).forEach(function(t) {
+        if (!allTools.includes(t)) allTools.push(t);
+      });
+    });
+    toolsContainer.innerHTML =
+      allTools.map(function(t) {
+        return '<button class="db-pill db-pill--outline" data-filter-tool="' + escHtml(t) + '">' + escHtml(t) + '</button>';
+      }).join('') +
+      '<button class="db-filter-clear-tools" id="filter-clear-tools" hidden>✕ Limpar</button>';
+  }
+
+  initFilterPills();
 
   // Archive
   const archiveList = document.getElementById('archive-list');
@@ -286,22 +303,6 @@ function initProjetos() {
   if (heroCountEl) heroCountEl.textContent = totalCases();
 
   bindCaseKeyboard('#page-projetos');
-  updateProjetosCounter();
-}
-
-function updateProjetosCounter() {
-  const el = document.getElementById('projetos-carousel-counter');
-  if (el) el.textContent = String(projetosCurrentIdx + 1).padStart(2, '0') + ' / ' + totalCases();
-}
-
-function scrollProjetosCarousel(dir) {
-  const carousel = document.getElementById('projetos-carousel');
-  if (!carousel) return;
-  const items = carousel.querySelectorAll('.db-carousel__item');
-  if (!items.length) return;
-  projetosCurrentIdx = Math.max(0, Math.min(DB_CASES.length - 1, projetosCurrentIdx + dir));
-  items[projetosCurrentIdx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-  updateProjetosCounter();
 }
 
 /* ----------------------------------------------------------------
@@ -314,10 +315,17 @@ function renderDetalhe(caseId) {
   const next = DB_CASES[(idx + 1) % DB_CASES.length];
   const page = document.getElementById('page-detalhe');
 
+  const prevCase = idx > 0 ? DB_CASES[idx - 1] : null;
+  const nextCase = idx < DB_CASES.length - 1 ? DB_CASES[idx + 1] : null;
+
   page.innerHTML = `
     <div class="db-detalhe-topbar">
       <button class="db-detalhe-topbar__back db-mono" data-nav="projetos">← Voltar para cases</button>
-      <span class="db-mono">case ${escHtml(c.num)} / ${totalCases()}</span>
+      <div class="db-detalhe-topbar__nav">
+        <button class="db-btn db-btn--ghost db-btn--icon db-case-prev" aria-label="Case anterior" ${!prevCase ? 'disabled' : ''} data-case="${prevCase ? prevCase.id : ''}">←</button>
+        <span class="db-mono">case ${escHtml(c.num)} / ${totalCases()}</span>
+        <button class="db-btn db-btn--ghost db-btn--icon db-case-next" aria-label="Próximo case" ${!nextCase ? 'disabled' : ''} data-case="${nextCase ? nextCase.id : ''}">→</button>
+      </div>
     </div>
 
     <div class="db-detalhe-cover-section">
@@ -351,10 +359,6 @@ function renderDetalhe(caseId) {
         <div>
           <div class="db-mono db-meta-key">Período</div>
           <div class="db-meta-value">${escHtml(c.meta.periodo)}</div>
-        </div>
-        <div>
-          <div class="db-mono db-meta-key">Cover</div>
-          <div class="db-meta-value">${escHtml(c.coverMode)}</div>
         </div>
       </div>
     </div>
@@ -421,6 +425,23 @@ function renderDetalhe(caseId) {
   `;
 
   bindCaseKeyboard('#page-detalhe');
+
+  const prevBtn = page.querySelector('.db-case-prev');
+  const nextBtn = page.querySelector('.db-case-next');
+  if (prevBtn && prevBtn.dataset.case) {
+    prevBtn.addEventListener('click', function() { navigate('detalhe', prevBtn.dataset.case); });
+  }
+  if (nextBtn && nextBtn.dataset.case) {
+    nextBtn.addEventListener('click', function() { navigate('detalhe', nextBtn.dataset.case); });
+  }
+
+  const cover = page.querySelector('.db-cover');
+  const metaSection = page.querySelector('.db-meta-section');
+  if (cover && metaSection) {
+    cover.addEventListener('click', function() {
+      metaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 }
 
 /* ----------------------------------------------------------------
@@ -460,19 +481,116 @@ function bindCaseKeyboard(scope) {
    11. FILTER PILLS (Projetos)
    ---------------------------------------------------------------- */
 
+let activeKind = 'Todos';
+let activeTools = [];
+
+function applyFilters() {
+  const grid = document.getElementById('projetos-grid');
+  if (!grid) return;
+  grid.querySelectorAll('.db-card').forEach(function(card) {
+    const kindMatch = activeKind === 'Todos' || card.dataset.kind === activeKind;
+    const cardStack = (card.dataset.stack || '').split(',');
+    const toolMatch = activeTools.length === 0 || activeTools.some(function(t) { return cardStack.includes(t); });
+    card.style.display = kindMatch && toolMatch ? '' : 'none';
+  });
+}
+
 function initFilterPills() {
-  const container = document.getElementById('filter-pills');
-  if (!container) return;
-  container.addEventListener('click', function(e) {
-    const btn = e.target.closest('[data-filter]');
-    if (!btn) return;
-    container.querySelectorAll('[data-filter]').forEach(function(b) {
+  const kindContainer = document.getElementById('filter-kind');
+  const toolContainer = document.getElementById('filter-tools');
+
+  if (kindContainer) {
+    kindContainer.addEventListener('click', function(e) {
+      const btn = e.target.closest('[data-filter-kind]');
+      if (!btn) return;
+      kindContainer.querySelectorAll('[data-filter-kind]').forEach(function(b) {
+        b.classList.remove('db-pill--ink');
+        b.classList.add('db-pill--outline');
+      });
+      btn.classList.remove('db-pill--outline');
+      btn.classList.add('db-pill--ink');
+      activeKind = btn.dataset.filterKind;
+      applyFilters();
+    });
+  }
+
+  const clearToolsBtn = document.getElementById('filter-clear-tools');
+  if (clearToolsBtn) {
+    clearToolsBtn.addEventListener('click', clearToolFilters);
+  }
+
+  if (toolContainer) {
+    toolContainer.addEventListener('click', function(e) {
+      if (e.target.closest('#filter-clear-tools')) return;
+      const btn = e.target.closest('[data-filter-tool]');
+      if (!btn) return;
+      const tool = btn.dataset.filterTool;
+      const isActive = btn.classList.contains('db-pill--ink');
+      if (isActive) {
+        btn.classList.remove('db-pill--ink');
+        btn.classList.add('db-pill--outline');
+        activeTools = activeTools.filter(function(t) { return t !== tool; });
+      } else {
+        btn.classList.remove('db-pill--outline');
+        btn.classList.add('db-pill--ink');
+        activeTools.push(tool);
+      }
+      updateStackToggleCount();
+      applyFilters();
+    });
+  }
+
+  const toggleBtn = document.getElementById('filter-stack-toggle');
+  if (toggleBtn && toolContainer) {
+    toggleBtn.addEventListener('click', function() {
+      const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      toggleBtn.querySelector('.db-filter-stack-toggle__icon').textContent = isOpen ? '⊕' : '⊖';
+      if (isOpen) {
+        toolContainer.hidden = true;
+      } else {
+        toolContainer.hidden = false;
+        const rect = toggleBtn.getBoundingClientRect();
+        toolContainer.style.top  = (rect.bottom + 8) + 'px';
+        toolContainer.style.left = rect.left + 'px';
+      }
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!toggleBtn.contains(e.target) && !toolContainer.contains(e.target)) {
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.querySelector('.db-filter-stack-toggle__icon').textContent = '⊕';
+        toolContainer.hidden = true;
+      }
+    });
+  }
+}
+
+function updateStackToggleCount() {
+  const countEl = document.getElementById('filter-stack-count');
+  const clearBtn = document.getElementById('filter-clear-tools');
+  if (countEl) {
+    if (activeTools.length > 0) {
+      countEl.textContent = activeTools.length;
+      countEl.hidden = false;
+    } else {
+      countEl.hidden = true;
+    }
+  }
+  if (clearBtn) clearBtn.hidden = activeTools.length === 0;
+}
+
+function clearToolFilters() {
+  activeTools = [];
+  const toolContainer = document.getElementById('filter-tools');
+  if (toolContainer) {
+    toolContainer.querySelectorAll('[data-filter-tool]').forEach(function(b) {
       b.classList.remove('db-pill--ink');
       b.classList.add('db-pill--outline');
     });
-    btn.classList.remove('db-pill--outline');
-    btn.classList.add('db-pill--ink');
-  });
+  }
+  updateStackToggleCount();
+  applyFilters();
 }
 
 /* ----------------------------------------------------------------
@@ -566,30 +684,6 @@ function init() {
     }, { passive: true });
   }
 
-  // Projetos carousel prev/next
-  const prevBtn = document.getElementById('projetos-prev');
-  const nextBtn = document.getElementById('projetos-next');
-  if (prevBtn) prevBtn.addEventListener('click', function() { scrollProjetosCarousel(-1); });
-  if (nextBtn) nextBtn.addEventListener('click', function() { scrollProjetosCarousel(1); });
-
-  // Projetos carousel — sync counter on scroll
-  const projetosCarousel = document.getElementById('projetos-carousel');
-  if (projetosCarousel) {
-    projetosCarousel.addEventListener('scroll', function() {
-      const items = projetosCarousel.querySelectorAll('.db-carousel__item');
-      let closest = 0;
-      let minDist = Infinity;
-      items.forEach(function(item, i) {
-        const dist = Math.abs(item.getBoundingClientRect().left - projetosCarousel.getBoundingClientRect().left);
-        if (dist < minDist) { minDist = dist; closest = i; }
-      });
-      if (closest !== projetosCurrentIdx) {
-        projetosCurrentIdx = closest;
-        updateProjetosCounter();
-      }
-    }, { passive: true });
-  }
-
   // Global nav delegation (data-nav on any element)
   document.addEventListener('click', function(e) {
     const navTarget = e.target.closest('[data-nav]');
@@ -607,8 +701,16 @@ function init() {
     }
   });
 
-  // Filter pills
-  initFilterPills();
+  // Back to top
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (backToTopBtn) {
+    window.addEventListener('scroll', function() {
+      backToTopBtn.hidden = window.scrollY < 200;
+    }, { passive: true });
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // Contact type pills
   initTypePills();

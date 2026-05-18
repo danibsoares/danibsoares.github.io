@@ -1143,6 +1143,24 @@ dark fill cards: italic highlight should be lime
    17. PROJETOS PAGE
    ================================================================ */
 
+.db-section--grid {
+  padding: 64px 48px 96px;
+  background: var(--db-bg);
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) and (min-width: 761px) {
+  .db-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .db-projetos-aside {
   display: flex;
   flex-direction: column;
@@ -1154,10 +1172,113 @@ dark fill cards: italic highlight should be lime
   font-size: 15px;
 }
 
+.db-filter-group {
+  position: relative;
+}
+
+.db-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .db-filter-pills {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+.db-filter-pills--tools {
+  position: fixed;
+  z-index: 100;
+  background: var(--db-bg);
+  border: var(--db-border) solid var(--db-border-color);
+  border-radius: var(--db-radius-card);
+  padding: 14px;
+  gap: 8px;
+  box-shadow: var(--db-shadow);
+  max-width: 480px;
+  transition: background var(--db-dur-normal) var(--db-ease);
+}
+
+.db-filter-pills--tools[hidden] {
+  display: none;
+}
+
+.db-filter-stack-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: var(--db-border) solid var(--db-border-color);
+  border-radius: var(--db-radius-pill);
+  padding: 6px 12px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--db-fg-2);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color var(--db-dur-fast) var(--db-ease),
+              border-color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-filter-stack-toggle:hover {
+  color: var(--db-fg-1);
+}
+
+.db-filter-stack-toggle[aria-expanded="true"] {
+  color: var(--db-fg-1);
+  border-color: var(--db-fg-1);
+}
+
+.db-filter-stack-toggle__icon {
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.db-filter-stack-toggle__count {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+  border-radius: var(--db-radius-pill);
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.db-filter-stack-toggle__count[hidden] {
+  display: none;
+}
+
+.db-filter-clear-tools {
+  background: none;
+  border: none;
+  font-family: var(--db-font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--db-fg-2);
+  cursor: pointer;
+  padding: 4px 0;
+  margin-left: auto;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--db-dur-fast) var(--db-ease);
+}
+
+.db-filter-clear-tools:hover {
+  color: var(--db-fg-1);
+}
+
+.db-filter-clear-tools[hidden] {
+  display: none;
 }
 
 /* Archive list */
@@ -1223,6 +1344,45 @@ dark fill cards: italic highlight should be lime
   color: var(--db-fg-1);
 }
 
+.db-detalhe-topbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Back to top */
+.db-back-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 200;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--db-radius-pill);
+  border: var(--db-border) solid var(--db-border-color);
+  background: var(--db-bg);
+  color: var(--db-fg-1);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--db-dur-fast) var(--db-ease),
+              transform var(--db-dur-fast) var(--db-ease),
+              opacity var(--db-dur-fast) var(--db-ease);
+  box-shadow: var(--db-shadow);
+}
+
+.db-back-to-top:hover {
+  background: var(--db-fg-1);
+  color: var(--db-bg);
+  transform: translateY(-2px);
+}
+
+.db-back-to-top[hidden] {
+  display: none;
+}
+
 .db-detalhe-cover-section {
   padding: 48px 48px 32px;
   background: var(--db-bg);
@@ -1235,6 +1395,7 @@ dark fill cards: italic highlight should be lime
   overflow: hidden;
   border: var(--db-border) solid var(--db-border-color);
   box-shadow: var(--db-shadow);
+  cursor: pointer;
 }
 
 .db-cover[data-cover-mode="light"] {
@@ -1269,7 +1430,7 @@ dark fill cards: italic highlight should be lime
 
 .db-cover__inner {
   position: relative;
-  aspect-ratio: 16 / 9;
+  height: 480px;
   padding: 56px;
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -1920,6 +2081,23 @@ dark fill cards: italic highlight should be lime
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
+  }
+
+  /* Back to top */
+  .db-back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Projects grid */
+  .db-section--grid {
+    padding: 40px 20px 64px;
+  }
+
+  .db-projects-grid {
+    grid-template-columns: 1fr;
   }
 
   /* Carousel */
