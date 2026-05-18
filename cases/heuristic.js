@@ -24,10 +24,10 @@
     heading: 'da auditoria ao relatório',
     highlightWord: 'auditoria',
     steps: [
-      { title: 'Mapeamento', body: 'Listagem de todos os fluxos do app por ordem de criticalidade.', legenda: '', artifact: 'placeholder' },
-      { title: 'Auditoria', body: 'Aplicação das 10 heurísticas com registro de evidências e screenshots.', legenda: '', artifact: 'placeholder' },
+      { title: 'Mapeamento', body: 'Listagem de todos os fluxos do app por ordem de criticalidade.', legenda: '', artifact: 'img/cases/heuristic/mapeamento.jpg' },
+      { title: 'Auditoria', body: 'Aplicação das 10 heurísticas com registro de evidências e screenshots.', legenda: '', artifact: 'img/cases/heuristic/auditoria.jpg' },
       { title: 'Severidade', body: 'Classificação 0–4 de cada violação com impacto e frequência.', legenda: '', artifact: null },
-      { title: 'Proposta', body: 'Mockups corretivos para as 3 violações mais graves.', legenda: '', artifact: 'placeholder' },
+      { title: 'Proposta', body: 'Mockups corretivos para as 3 violações mais graves.', legenda: '', artifact: 'img/cases/heuristic/proposta.jpg' },
     ],
   },
   stats: [

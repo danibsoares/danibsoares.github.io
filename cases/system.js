@@ -24,9 +24,9 @@
     heading: 'do caos ao componente',
     highlightWord: 'caos',
     steps: [
-      { title: 'Inventário', body: 'Auditoria de todas as telas existentes. 47 variações inconsistentes encontradas.', legenda: '', artifact: 'placeholder' },
-      { title: 'Tokens', body: 'Definição de 28 tokens de cor, 6 de tipografia e 4 de espaçamento.', legenda: '', artifact: 'placeholder' },
-      { title: 'Componentes', body: '12 componentes base construídos com auto-layout e variantes.', legenda: '', artifact: 'placeholder' },
+      { title: 'Inventário', body: 'Auditoria de todas as telas existentes. 47 variações inconsistentes encontradas.', legenda: '', artifact: 'img/cases/system/inventario.jpg' },
+      { title: 'Tokens', body: 'Definição de 28 tokens de cor, 6 de tipografia e 4 de espaçamento.', legenda: '', artifact: 'img/cases/system/tokens.jpg' },
+      { title: 'Componentes', body: '12 componentes base construídos com auto-layout e variantes.', legenda: '', artifact: 'img/cases/system/componentes.jpg' },
       { title: 'Documentação', body: 'Guia de uso com exemplos de certo/errado. Handoff completo.', legenda: '', artifact: null },
     ],
   },

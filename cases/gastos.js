@@ -25,8 +25,8 @@
     highlightWord: 'alívio',
     steps: [
       { title: 'Imersão', body: 'Benchmark de 6 apps financeiros + revisão de literatura em psicologia financeira e data viz.', legenda: '', artifact: null },
-      { title: 'Pesquisa', body: 'Teste de preferência com 3 tipos de gráfico (barra, linha, rosca) com 8 participantes.', legenda: '', artifact: 'placeholder' },
-      { title: 'Protótipo', body: 'Fluxo de inserção de gasto em 3 telas: valor → categoria sugerida → confirmação.', legenda: '', artifact: 'placeholder' },
+      { title: 'Pesquisa', body: 'Teste de preferência com 3 tipos de gráfico (barra, linha, rosca) com 8 participantes.', legenda: '', artifact: 'img/cases/gastos/pesquisa.jpg' },
+      { title: 'Protótipo', body: 'Fluxo de inserção de gasto em 3 telas: valor → categoria sugerida → confirmação.', legenda: '', artifact: 'img/cases/gastos/prototipo.jpg' },
       { title: 'Teste', body: '5 sessões de usabilidade. Métrica-alvo: inserção de gasto em até 3 segundos.', legenda: '', artifact: null },
     ],
   },

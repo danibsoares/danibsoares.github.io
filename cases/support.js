@@ -24,10 +24,10 @@
     heading: 'do ticket ao insight',
     highlightWord: 'insight',
     steps: [
-      { title: 'Coleta', body: '1.200 tickets exportados, anonimizados e categorizados por área de produto.', legenda: 'teste teste teste', artifact: 'placeholder' },
-      { title: 'Síntese', body: 'Affinity diagram em FigJam — 12 temas emergiram naturalmente.', legenda: '', artifact: 'placeholder' },
+      { title: 'Coleta', body: '1.200 tickets exportados, anonimizados e categorizados por área de produto.', legenda: 'teste teste teste', artifact: 'img/cases/support/coleta.jpg' },
+      { title: 'Síntese', body: 'Affinity diagram em FigJam — 12 temas emergiram naturalmente.', legenda: '', artifact: 'img/cases/support/sintese.jpg' },
       { title: 'Insight', body: '3 padrões repetidos ao longo de 4 anos, em fluxos diferentes.', legenda: '', artifact: null },
-      { title: 'Apresentação', body: '18 slides para produto e engenharia, antes de qualquer mudança.', legenda: '', artifact: 'placeholder' },
+      { title: 'Apresentação', body: '18 slides para produto e engenharia, antes de qualquer mudança.', legenda: '', artifact: 'img/cases/support/apresentacao.jpg' },
     ],
   },
   stats: [

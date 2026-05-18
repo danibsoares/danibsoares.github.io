@@ -1,0 +1,21 @@
+# Claude Code — configurações locais pessoais
+.claude/settings.local.json
+
+# Dependências (futuro)
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Recursos locais de referência (não fazem parte do site)
+design system/
